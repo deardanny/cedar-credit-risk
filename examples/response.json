@@ -1,0 +1,9 @@
+{
+  "model_version": "cedar-v0-2e744ab0dfc7",
+  "target": "default_payment_next_month",
+  "probability": 0.09134012091643216,
+  "risk_score": 9.13,
+  "score_definition": "100 \u00d7 P(original UCI default-payment-next-month label = 1)",
+  "scope": "Learning benchmark: Taiwan credit card customers, 2005; not validated for microfinance",
+  "input_warnings": []
+}

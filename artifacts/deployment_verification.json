@@ -1,0 +1,32 @@
+{
+  "health": {
+    "status": "ready",
+    "model_version": "cedar-v0-2e744ab0dfc7"
+  },
+  "example_response": {
+    "model_version": "cedar-v0-2e744ab0dfc7",
+    "target": "default_payment_next_month",
+    "probability": 0.09134012091643216,
+    "risk_score": 9.13,
+    "score_definition": "100 \u00d7 P(original UCI default-payment-next-month label = 1)",
+    "scope": "Learning benchmark: Taiwan credit card customers, 2005; not validated for microfinance",
+    "input_warnings": []
+  },
+  "host_model_probability": 0.09134012091643216,
+  "prediction_parity_tolerance": 1e-12,
+  "sequential_requests": 30,
+  "p50_ms": 5.791458504972979,
+  "p95_ms": 7.033906540891621,
+  "invalid_input_status": 422,
+  "metrics": {
+    "prediction_requests": 32,
+    "prediction_errors": 1,
+    "prediction_successes": 31,
+    "total_latency_ms": 163.63674699996977,
+    "probability_sum": 2.831543748409397,
+    "mean_latency_ms": 5.113648343749055,
+    "mean_probability": 0.09134012091643216,
+    "note": "In-process aggregate metrics; reset on restart. No repayment labels or performance drift measurement."
+  },
+  "note": "Warm local sequential smoke test, not a concurrent or production benchmark."
+}

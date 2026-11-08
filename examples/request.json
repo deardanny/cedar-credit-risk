@@ -1,0 +1,7 @@
+{
+  "dataset_context": "uci_taiwan_credit_card_2005",
+  "credit_limit_ntd": 100000,
+  "repayment_status": [0, 0, 0, 0, 0, 0],
+  "bill_amounts_ntd": [30000, 28000, 26000, 29000, 25000, 24000],
+  "payment_amounts_ntd": [3000, 3000, 3000, 3000, 3000, 3000]
+}

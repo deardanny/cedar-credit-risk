@@ -1,0 +1,138 @@
+{
+  "model_version": "cedar-v0-2e744ab0dfc7",
+  "selected_model": "hist_gradient_boosting",
+  "created_at": "2026-09-14T22:15:29.652247+00:00",
+  "model_sha256": "2e744ab0dfc74380d060384ec961fba8c7d9cc4a962c9e39fedff5075178997d",
+  "dataset": "uci_taiwan_credit_card_2005",
+  "data_url": "https://archive.ics.uci.edu/static/public/350/data.csv",
+  "data_sha256": "45bcf4df62ff2e237a74eb155cabfb4bbbc171219a0637daef44fdad07503dd0",
+  "dataset_license": "CC BY 4.0",
+  "dataset_citation": "Yeh, I. (2009). https://doi.org/10.24432/C55S3H",
+  "target": "default_payment_next_month",
+  "prediction_horizon": "next month; original UCI label",
+  "scope": "Learning benchmark: Taiwan credit card customers, 2005; not validated for microfinance",
+  "features": [
+    "LIMIT_BAL",
+    "BILL_AMT1",
+    "BILL_AMT2",
+    "BILL_AMT3",
+    "BILL_AMT4",
+    "BILL_AMT5",
+    "BILL_AMT6",
+    "PAY_AMT1",
+    "PAY_AMT2",
+    "PAY_AMT3",
+    "PAY_AMT4",
+    "PAY_AMT5",
+    "PAY_AMT6",
+    "PAY_0",
+    "PAY_2",
+    "PAY_3",
+    "PAY_4",
+    "PAY_5",
+    "PAY_6"
+  ],
+  "training_ranges": {
+    "LIMIT_BAL": [
+      10000.0,
+      1000000.0
+    ],
+    "BILL_AMT1": [
+      -165580.0,
+      964511.0
+    ],
+    "BILL_AMT2": [
+      -30000.0,
+      983931.0
+    ],
+    "BILL_AMT3": [
+      -157264.0,
+      1664089.0
+    ],
+    "BILL_AMT4": [
+      -170000.0,
+      891586.0
+    ],
+    "BILL_AMT5": [
+      -81334.0,
+      927171.0
+    ],
+    "BILL_AMT6": [
+      -150953.0,
+      961664.0
+    ],
+    "PAY_AMT1": [
+      0.0,
+      505000.0
+    ],
+    "PAY_AMT2": [
+      0.0,
+      1684259.0
+    ],
+    "PAY_AMT3": [
+      0.0,
+      896040.0
+    ],
+    "PAY_AMT4": [
+      0.0,
+      497000.0
+    ],
+    "PAY_AMT5": [
+      0.0,
+      426529.0
+    ],
+    "PAY_AMT6": [
+      0.0,
+      528666.0
+    ],
+    "PAY_0": [
+      -2.0,
+      8.0
+    ],
+    "PAY_2": [
+      -2.0,
+      8.0
+    ],
+    "PAY_3": [
+      -2.0,
+      8.0
+    ],
+    "PAY_4": [
+      -2.0,
+      8.0
+    ],
+    "PAY_5": [
+      -2.0,
+      7.0
+    ],
+    "PAY_6": [
+      -2.0,
+      7.0
+    ]
+  },
+  "versions": {
+    "scikit-learn": "1.9.1",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "joblib": "1.6.0"
+  },
+  "python": "3.12.14",
+  "plan_sha256": "e204381d6beeabfde5698caafb086b92201d337a9fe86b66f008574cbadf21d3",
+  "source_sha256": {
+    "__init__.py": "cbce73c85fc732f3c980e0e76b26325a8a9c045d9738d46a6f1f7bac0d253d08",
+    "api.py": "6d09c5eabe8507f7343c265f82074c9476bf0614cc4ea58d4d9601aaaf2ca7a9",
+    "data.py": "485ab83043a9085aaecd75b1cbda7b8edd8b1122c7f42543ca0f473631794ba7",
+    "model.py": "93e54daf0a63b8c008fc9500ff6f5a8fd2132a8b052f64c3e16dab52012fcee1",
+    "train.py": "ec51d69c608cf597220968f34ea5cc2e902f2b0f2141fba52e5a6ddcfcbe4239"
+  },
+  "test_metrics": {
+    "n": 6000,
+    "event_rate": 0.22133333333333333,
+    "mean_prediction": 0.22460021774536806,
+    "log_loss": 0.4244439193548345,
+    "brier": 0.1332119356367069,
+    "roc_auc": 0.7874180261284865,
+    "average_precision": 0.561439556943087
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "seed": 42,
+  "selection": "validation log loss, then Brier, then name; no refit",
+  "plan_sha256": "e204381d6beeabfde5698caafb086b92201d337a9fe86b66f008574cbadf21d3",
+  "splits": {
+    "train": {
+      "rows": 17998,
+      "event_rate": 0.22113568174241582
+    },
+    "calibration": {
+      "rows": 2995,
+      "event_rate": 0.22070116861435726
+    },
+    "validation": {
+      "rows": 3007,
+      "event_rate": 0.2218157632191553
+    },
+    "test": {
+      "rows": 6000,
+      "event_rate": 0.22133333333333333
+    }
+  },
+  "selected_model": "hist_gradient_boosting",
+  "validation": {
+    "prior": {
+      "n": 3007,
+      "event_rate": 0.2218157632191553,
+      "mean_prediction": 0.22113568174241574,
+      "log_loss": 0.5291978658284198,
+      "brier": 0.1726139929174739,
+      "roc_auc": 0.5,
+      "average_precision": 0.2218157632191553
+    },
+    "logistic": {
+      "n": 3007,
+      "event_rate": 0.2218157632191553,
+      "mean_prediction": 0.21894727115354537,
+      "log_loss": 0.4352001511317722,
+      "brier": 0.1360366541350858,
+      "roc_auc": 0.7702581401606888,
+      "average_precision": 0.5462091190433318
+    },
+    "logistic_sigmoid": {
+      "n": 3007,
+      "event_rate": 0.2218157632191553,
+      "mean_prediction": 0.21774134403869513,
+      "log_loss": 0.4352713368551114,
+      "brier": 0.1361019093477402,
+      "roc_auc": 0.7702427632337677,
+      "average_precision": 0.5461253393248711
+    },
+    "hist_gradient_boosting": {
+      "n": 3007,
+      "event_rate": 0.2218157632191553,
+      "mean_prediction": 0.21618878057423585,
+      "log_loss": 0.43164494941011783,
+      "brier": 0.1351100269175747,
+      "roc_auc": 0.7730964645882188,
+      "average_precision": 0.5525651796760921
+    },
+    "hist_gradient_boosting_sigmoid": {
+      "n": 3007,
+      "event_rate": 0.2218157632191553,
+      "mean_prediction": 0.21404318043251172,
+      "log_loss": 0.43170780685343785,
+      "brier": 0.13517079413309593,
+      "roc_auc": 0.7730964645882188,
+      "average_precision": 0.5525651796760921
+    }
+  }
+}
