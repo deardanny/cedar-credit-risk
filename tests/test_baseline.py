@@ -41,6 +41,9 @@ def test_api_matches_saved_pipeline(client, payload):
     {"repayment_status": [0] * 5}, {"repayment_status": [0.5] * 6},
     {"repayment_status": [10] * 6}, {"SEX": 1},
     {"bill_amounts_ntd": ["NaN"] * 6}, {"dataset_context": "microfinance"},
+    {"credit_limit_ntd": True}, {"credit_limit_ntd": "200000"},
+    {"bill_amounts_ntd": [True] * 6}, {"bill_amounts_ntd": ["100"] * 6},
+    {"payment_amounts_ntd": [False] * 6}, {"payment_amounts_ntd": ["100"] * 6},
 ])
 def test_invalid_requests_are_rejected(client, payload, change):
     response = client.post("/predict", json={**payload, **change})

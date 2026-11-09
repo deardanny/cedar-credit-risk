@@ -19,7 +19,7 @@ Status = Annotated[int, Field(strict=True, ge=-2, le=9)]
 
 
 class ScoreRequest(BaseModel):
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="forbid", strict=True)
     dataset_context: Literal["uci_taiwan_credit_card_2005"]
     credit_limit_ntd: Annotated[FiniteFloat, Field(gt=0)]
     repayment_status: Annotated[list[Status], Field(min_length=6, max_length=6)]
