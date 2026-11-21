@@ -1,0 +1,573 @@
+{
+  "snapshots": [
+    "2026-06-30",
+    "2026-09-30"
+  ],
+  "sources": [
+    {
+      "old_file": "FOIA_7a_FY2010_FY2019_asof_260630.csv",
+      "new_file": "FOIA_7a_FY2010_FY2019_asof_260930.csv",
+      "old": {
+        "rows": 545751,
+        "valid_identity_rows": 478700,
+        "ambiguous_valid_rows": 1798,
+        "eligible_unique_rows": 476902
+      },
+      "new": {
+        "rows": 545751,
+        "valid_identity_rows": 478700,
+        "ambiguous_valid_rows": 1798,
+        "eligible_unique_rows": 476902
+      },
+      "matched": 476624,
+      "strict_matched": 464626
+    },
+    {
+      "old_file": "FOIA_7a_FY2020_Present_asof_260630.csv",
+      "new_file": "FOIA_7a_FY2020_Present_asof_260930.csv",
+      "old": {
+        "rows": 388338,
+        "valid_identity_rows": 317152,
+        "ambiguous_valid_rows": 520,
+        "eligible_unique_rows": 316632
+      },
+      "new": {
+        "rows": 403644,
+        "valid_identity_rows": 329221,
+        "ambiguous_valid_rows": 539,
+        "eligible_unique_rows": 328682
+      },
+      "matched": 314679,
+      "strict_matched": 306541
+    }
+  ],
+  "linkage_is_not_public_loan_id": true,
+  "identity_keys": [
+    "borrower_key",
+    "app",
+    "disb",
+    "amount",
+    "program"
+  ],
+  "strict_extra_fields": [
+    "BorrName",
+    "BorrStreet",
+    "BorrCity",
+    "BorrState",
+    "BorrZip",
+    "BankName",
+    "BankFDICNumber",
+    "BankNCUANumber"
+  ],
+  "all_matched": {
+    "matched_loans": 791303,
+    "term_changed": 4256,
+    "term_changed_pct": 0.537847069959295,
+    "both_terms_present": 791303,
+    "shortened": 3549,
+    "extended": 707,
+    "status_transitions": [
+      {
+        "june_status": "CHGOFF",
+        "september_status": "CHGOFF",
+        "matched": 40733,
+        "term_changed": 1,
+        "term_changed_pct": 0.0024550119068077482,
+        "term_shortened": 0,
+        "term_extended": 1,
+        "multiple12_to_nonmultiple": 1
+      },
+      {
+        "june_status": "CHGOFF",
+        "september_status": "EXEMPT",
+        "matched": 19,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      },
+      {
+        "june_status": "CHGOFF",
+        "september_status": "PIF",
+        "matched": 132,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      },
+      {
+        "june_status": "EXEMPT",
+        "september_status": "CHGOFF",
+        "matched": 1780,
+        "term_changed": 696,
+        "term_changed_pct": 39.10112359550561,
+        "term_shortened": 691,
+        "term_extended": 5,
+        "multiple12_to_nonmultiple": 532
+      },
+      {
+        "june_status": "EXEMPT",
+        "september_status": "EXEMPT",
+        "matched": 278726,
+        "term_changed": 3379,
+        "term_changed_pct": 1.2123016869613887,
+        "term_shortened": 2701,
+        "term_extended": 678,
+        "multiple12_to_nonmultiple": 2431
+      },
+      {
+        "june_status": "EXEMPT",
+        "september_status": "PIF",
+        "matched": 9199,
+        "term_changed": 170,
+        "term_changed_pct": 1.8480269594521144,
+        "term_shortened": 151,
+        "term_extended": 19,
+        "multiple12_to_nonmultiple": 140
+      },
+      {
+        "june_status": "PIF",
+        "september_status": "CHGOFF",
+        "matched": 6,
+        "term_changed": 3,
+        "term_changed_pct": 50.0,
+        "term_shortened": 3,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 3
+      },
+      {
+        "june_status": "PIF",
+        "september_status": "EXEMPT",
+        "matched": 48,
+        "term_changed": 7,
+        "term_changed_pct": 14.583333333333334,
+        "term_shortened": 3,
+        "term_extended": 4,
+        "multiple12_to_nonmultiple": 4
+      },
+      {
+        "june_status": "PIF",
+        "september_status": "PIF",
+        "matched": 460660,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      }
+    ]
+  },
+  "strict_matched": {
+    "matched_loans": 771167,
+    "term_changed": 4050,
+    "term_changed_pct": 0.5251780742692568,
+    "both_terms_present": 771167,
+    "shortened": 3354,
+    "extended": 696,
+    "status_transitions": [
+      {
+        "june_status": "CHGOFF",
+        "september_status": "CHGOFF",
+        "matched": 39888,
+        "term_changed": 1,
+        "term_changed_pct": 0.002507019655034095,
+        "term_shortened": 0,
+        "term_extended": 1,
+        "multiple12_to_nonmultiple": 1
+      },
+      {
+        "june_status": "CHGOFF",
+        "september_status": "EXEMPT",
+        "matched": 19,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      },
+      {
+        "june_status": "CHGOFF",
+        "september_status": "PIF",
+        "matched": 130,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      },
+      {
+        "june_status": "EXEMPT",
+        "september_status": "CHGOFF",
+        "matched": 1683,
+        "term_changed": 652,
+        "term_changed_pct": 38.74034462269756,
+        "term_shortened": 647,
+        "term_extended": 5,
+        "multiple12_to_nonmultiple": 495
+      },
+      {
+        "june_status": "EXEMPT",
+        "september_status": "EXEMPT",
+        "matched": 271100,
+        "term_changed": 3222,
+        "term_changed_pct": 1.1884913316119512,
+        "term_shortened": 2554,
+        "term_extended": 668,
+        "multiple12_to_nonmultiple": 2313
+      },
+      {
+        "june_status": "EXEMPT",
+        "september_status": "PIF",
+        "matched": 8976,
+        "term_changed": 165,
+        "term_changed_pct": 1.8382352941176472,
+        "term_shortened": 147,
+        "term_extended": 18,
+        "multiple12_to_nonmultiple": 137
+      },
+      {
+        "june_status": "PIF",
+        "september_status": "CHGOFF",
+        "matched": 6,
+        "term_changed": 3,
+        "term_changed_pct": 50.0,
+        "term_shortened": 3,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 3
+      },
+      {
+        "june_status": "PIF",
+        "september_status": "EXEMPT",
+        "matched": 48,
+        "term_changed": 7,
+        "term_changed_pct": 14.583333333333334,
+        "term_shortened": 3,
+        "term_extended": 4,
+        "multiple12_to_nonmultiple": 4
+      },
+      {
+        "june_status": "PIF",
+        "september_status": "PIF",
+        "matched": 449317,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      }
+    ]
+  },
+  "current_model_cohort_matched": {
+    "matched_loans": 491801,
+    "term_changed": 2574,
+    "term_changed_pct": 0.5233824250052359,
+    "both_terms_present": 491801,
+    "shortened": 2239,
+    "extended": 335,
+    "status_transitions": [
+      {
+        "june_status": "CHGOFF",
+        "september_status": "CHGOFF",
+        "matched": 26742,
+        "term_changed": 1,
+        "term_changed_pct": 0.00373943609303717,
+        "term_shortened": 0,
+        "term_extended": 1,
+        "multiple12_to_nonmultiple": 1
+      },
+      {
+        "june_status": "CHGOFF",
+        "september_status": "EXEMPT",
+        "matched": 11,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      },
+      {
+        "june_status": "CHGOFF",
+        "september_status": "PIF",
+        "matched": 73,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      },
+      {
+        "june_status": "EXEMPT",
+        "september_status": "CHGOFF",
+        "matched": 1089,
+        "term_changed": 335,
+        "term_changed_pct": 30.76216712580349,
+        "term_shortened": 330,
+        "term_extended": 5,
+        "multiple12_to_nonmultiple": 228
+      },
+      {
+        "june_status": "EXEMPT",
+        "september_status": "EXEMPT",
+        "matched": 152135,
+        "term_changed": 2106,
+        "term_changed_pct": 1.384296841620929,
+        "term_shortened": 1793,
+        "term_extended": 313,
+        "multiple12_to_nonmultiple": 1589
+      },
+      {
+        "june_status": "EXEMPT",
+        "september_status": "PIF",
+        "matched": 6168,
+        "term_changed": 128,
+        "term_changed_pct": 2.075226977950713,
+        "term_shortened": 114,
+        "term_extended": 14,
+        "multiple12_to_nonmultiple": 107
+      },
+      {
+        "june_status": "PIF",
+        "september_status": "CHGOFF",
+        "matched": 2,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      },
+      {
+        "june_status": "PIF",
+        "september_status": "EXEMPT",
+        "matched": 23,
+        "term_changed": 4,
+        "term_changed_pct": 17.391304347826086,
+        "term_shortened": 2,
+        "term_extended": 2,
+        "multiple12_to_nonmultiple": 2
+      },
+      {
+        "june_status": "PIF",
+        "september_status": "PIF",
+        "matched": 305558,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      }
+    ]
+  },
+  "current_model_cohort_strict_matched": {
+    "matched_loans": 478008,
+    "term_changed": 2409,
+    "term_changed_pct": 0.5039664608123714,
+    "both_terms_present": 478008,
+    "shortened": 2079,
+    "extended": 330,
+    "status_transitions": [
+      {
+        "june_status": "CHGOFF",
+        "september_status": "CHGOFF",
+        "matched": 26116,
+        "term_changed": 1,
+        "term_changed_pct": 0.0038290703017307393,
+        "term_shortened": 0,
+        "term_extended": 1,
+        "multiple12_to_nonmultiple": 1
+      },
+      {
+        "june_status": "CHGOFF",
+        "september_status": "EXEMPT",
+        "matched": 11,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      },
+      {
+        "june_status": "CHGOFF",
+        "september_status": "PIF",
+        "matched": 72,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      },
+      {
+        "june_status": "EXEMPT",
+        "september_status": "CHGOFF",
+        "matched": 1034,
+        "term_changed": 317,
+        "term_changed_pct": 30.657640232108317,
+        "term_shortened": 312,
+        "term_extended": 5,
+        "multiple12_to_nonmultiple": 212
+      },
+      {
+        "june_status": "EXEMPT",
+        "september_status": "EXEMPT",
+        "matched": 147441,
+        "term_changed": 1964,
+        "term_changed_pct": 1.3320582470276245,
+        "term_shortened": 1655,
+        "term_extended": 309,
+        "multiple12_to_nonmultiple": 1480
+      },
+      {
+        "june_status": "EXEMPT",
+        "september_status": "PIF",
+        "matched": 5988,
+        "term_changed": 123,
+        "term_changed_pct": 2.0541082164328657,
+        "term_shortened": 110,
+        "term_extended": 13,
+        "multiple12_to_nonmultiple": 104
+      },
+      {
+        "june_status": "PIF",
+        "september_status": "CHGOFF",
+        "matched": 2,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      },
+      {
+        "june_status": "PIF",
+        "september_status": "EXEMPT",
+        "matched": 23,
+        "term_changed": 4,
+        "term_changed_pct": 17.391304347826086,
+        "term_shortened": 2,
+        "term_extended": 2,
+        "multiple12_to_nonmultiple": 2
+      },
+      {
+        "june_status": "PIF",
+        "september_status": "PIF",
+        "matched": 297321,
+        "term_changed": 0,
+        "term_changed_pct": 0.0,
+        "term_shortened": 0,
+        "term_extended": 0,
+        "multiple12_to_nonmultiple": 0
+      }
+    ]
+  },
+  "elapsed_duration_diagnostic": {
+    "population": "strict current model cohort, EXEMPT to CHGOFF, term changed",
+    "n": 317,
+    "days_per_month": 30.4375,
+    "new_term_within_3_months_of_elapsed": 15,
+    "term_reduction_within_3_months_of_elapsed": 267,
+    "interpretation": "The field is not uniformly actual elapsed time to charge-off. A remaining-term-like pattern is exploratory, not proof of an SBA calculation rule."
+  },
+  "validation": {
+    "all_new_chargeoffs_dated_in_snapshot_interval": true,
+    "new_chargeoffs_checked": 1034,
+    "ambiguous_linkage_keys_excluded": true,
+    "outcome_and_term_not_used_in_linkage": true,
+    "verified_examples": 3,
+    "independently_read_raw_records": 6,
+    "independent_parser": "csv.DictReader",
+    "source_row_convention": "CSV record ordinal plus 1 header record; first data record=2, not physical text line if quoted newlines exist",
+    "selection": "Illustrative cases selected after inspection, not a random sample; aggregate statistics use every eligible match."
+  },
+  "dictionary": {
+    "file": "data/raw/7a_504_foia_data_dictionary.xlsx",
+    "sheet": "7(a) Data Dictionary",
+    "range": "A25:B25",
+    "definition": "Length of loan term",
+    "original_immutable_term_explicitly_stated": false
+  },
+  "model_check": {
+    "artifact": "models/origination_v2_2024.joblib",
+    "sha256_before": "76ca2f6c6910a6cd2d32cb36a12c90af03f368f3b336519fd8a0f074c70f1edc",
+    "sha256_after": "76ca2f6c6910a6cd2d32cb36a12c90af03f368f3b336519fd8a0f074c70f1edc",
+    "term_used": false,
+    "selected_features": {
+      "probability": [
+        "log_amount",
+        "guarantee_share",
+        "initial_rate",
+        "log_jobs",
+        "log_amount_per_job",
+        "log_unguaranteed_amount",
+        "us_unemployment",
+        "us_unemployment_change",
+        "fed_funds",
+        "prime_rate",
+        "inflation_yoy",
+        "industrial_growth_yoy",
+        "yield_curve",
+        "state_unemployment",
+        "state_unemployment_change",
+        "state_unemployment_gap",
+        "rate_over_prime",
+        "industry",
+        "state",
+        "business_age",
+        "business_type"
+      ],
+      "severity": [
+        "log_amount",
+        "guarantee_share",
+        "initial_rate",
+        "log_jobs",
+        "log_amount_per_job",
+        "log_unguaranteed_amount",
+        "us_unemployment",
+        "us_unemployment_change",
+        "fed_funds",
+        "prime_rate",
+        "inflation_yoy",
+        "industrial_growth_yoy",
+        "yield_curve",
+        "state_unemployment",
+        "state_unemployment_change",
+        "state_unemployment_gap",
+        "rate_over_prime",
+        "industry",
+        "state",
+        "business_age",
+        "business_type"
+      ]
+    },
+    "model_modified": false
+  },
+  "decision": {
+    "TermInMonths": "Exclude from origination training unless an original-contract value with decision-time provenance is obtained.",
+    "term_months": "Same exclusion applies to the derived copy.",
+    "confirmed": "The published field changes after origination; changes also occur in the interval when new charge-offs are recorded.",
+    "not_proven": "Two snapshots do not establish the exact update timestamp, the causal mechanism, or the original contractual value of any loan. The June value is not assumed original.",
+    "scope": "7(a) FY2010 onward; current project cohort and broader raw-source matched sample. No conclusion about every 504 row."
+  },
+  "official_sources": [
+    {
+      "url": "https://data.sba.gov/dataset/7a-504-foia",
+      "supports": "Quarterly FOIA updates and source downloads."
+    },
+    {
+      "url": "https://data.sba.gov/sites/default/files/uploaded_resources/7a_504_foia_data_dictionary.xlsx",
+      "supports": "Field dictionary; local supplied workbook inspected."
+    },
+    {
+      "url": "https://legacy.sba.gov/about-sba/sba-locations/loan-guaranty-centers/commercial-loan-service-centers/7a-express-servicing",
+      "supports": "E-Tran permits changes to maturity date/months; it does not specify the FOIA field computation."
+    }
+  ],
+  "source_hashes": {
+    "data/raw/Archive.zip": "3d4cf679e43f3f8bbdf29d2c918f2799cc79baa5ddabbbc8f2052b8d1548d370",
+    "data/raw/7a_504_foia_data_dictionary.xlsx": "777ba97a6f92e325f79905610816cb59d41f1971cd964c54dc30ef02730a3941",
+    "data/external/sba_new/FOIA_7a_FY2010_FY2019_asof_260930.csv": "39aa32b71fb5dbb4bfb178c9b3d597c92bb6903622027c2f8360d13e57d0abb2",
+    "data/external/sba_new/FOIA_7a_FY2020_Present_asof_260930.csv": "b56194df6da2c22c318fcfc9f8f087152bc54e2be391c4cc70316514c37ef8e6",
+    "data/processed/hour_short_development.pkl": "0bab606a04515edcc699e002966a1bd294aa5cbf57d8d56ee01b35a902b9fa9e",
+    "data/processed/hour_medium_holdout.pkl": "7109db2244e0ac258a8274599a8d05351889439690bb071dee2ba4724a60c28c",
+    "src/origination_model.py": "29970879b3ee9de1e9096bc9036d85ebb280ccaedafc1f83676da36422d8d32c"
+  }
+}

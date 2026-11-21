@@ -1,0 +1,126 @@
+{
+  "union_pair_count": 478504,
+  "conflicting_pairs_excluded": 3,
+  "any_model_feature_changed": 59,
+  "feature_changed_loans_by_role": {
+    "fit": 26,
+    "other_project": 26,
+    "assessment": 6,
+    "calibration": 1
+  },
+  "max_absolute_probability_difference_percentage_points": 1.0586908806340576,
+  "max_absolute_expected_gross_amount_difference": 2092.3241273548924,
+  "max_probability_change_case": {
+    "BorrName_sept": "RabCup Corp.",
+    "role_sept": "fit",
+    "linkage": "exact_name_dates_bank_amount_no_address",
+    "app_sept": "2018-02-02 00:00:00",
+    "amount_june": 250000.0,
+    "amount_sept": 250000.0,
+    "status_june": "EXEMPT",
+    "status_sept": "EXEMPT",
+    "source_file_june": "FOIA_7a_FY2010_FY2019_asof_260630.csv",
+    "source_row_june": 454037,
+    "source_file_sept": "FOIA_7a_FY2010_FY2019_asof_260930.csv",
+    "source_row_sept": 453994,
+    "changed_features": "state_unemployment,state_unemployment_change,state_unemployment_gap,state",
+    "p_june_inputs": 0.01564844944446832,
+    "p_sept_inputs": 0.005061540638127745,
+    "probability_change_percentage_points": -1.0586908806340576,
+    "el_june_inputs": 2895.2999842024433,
+    "el_sept_inputs": 802.9758568475509,
+    "expected_gross_amount_change": -2092.3241273548924
+  },
+  "max_amount_change_case": {
+    "BorrName_sept": "RabCup Corp.",
+    "role_sept": "fit",
+    "linkage": "exact_name_dates_bank_amount_no_address",
+    "app_sept": "2018-02-02 00:00:00",
+    "amount_june": 250000.0,
+    "amount_sept": 250000.0,
+    "status_june": "EXEMPT",
+    "status_sept": "EXEMPT",
+    "source_file_june": "FOIA_7a_FY2010_FY2019_asof_260630.csv",
+    "source_row_june": 454037,
+    "source_file_sept": "FOIA_7a_FY2010_FY2019_asof_260930.csv",
+    "source_row_sept": 453994,
+    "changed_features": "state_unemployment,state_unemployment_change,state_unemployment_gap,state",
+    "p_june_inputs": 0.01564844944446832,
+    "p_sept_inputs": 0.005061540638127745,
+    "probability_change_percentage_points": -1.0586908806340576,
+    "el_june_inputs": 2895.2999842024433,
+    "el_sept_inputs": 802.9758568475509,
+    "expected_gross_amount_change": -2092.3241273548924
+  },
+  "independent_raw_source_records_verified": 118,
+  "every_used_feature_change_reverified": true,
+  "canonical_source_extraction_mismatches": {
+    "log_amount": 0,
+    "guarantee_share": 0,
+    "initial_rate": 0,
+    "log_jobs": 0,
+    "industry": 0,
+    "state": 0,
+    "business_age": 0,
+    "business_type": 0,
+    "amount": 0,
+    "app": 0
+  },
+  "status_transition_counts": [
+    {
+      "june_status": "CHGOFF",
+      "sept_status": "CHGOFF",
+      "n": 26103,
+      "any_model_feature_changed": 4
+    },
+    {
+      "june_status": "CHGOFF",
+      "sept_status": "EXEMPT",
+      "n": 11,
+      "any_model_feature_changed": 0
+    },
+    {
+      "june_status": "CHGOFF",
+      "sept_status": "PIF",
+      "n": 72,
+      "any_model_feature_changed": 0
+    },
+    {
+      "june_status": "EXEMPT",
+      "sept_status": "CHGOFF",
+      "n": 1031,
+      "any_model_feature_changed": 3
+    },
+    {
+      "june_status": "EXEMPT",
+      "sept_status": "EXEMPT",
+      "n": 148155,
+      "any_model_feature_changed": 39
+    },
+    {
+      "june_status": "EXEMPT",
+      "sept_status": "PIF",
+      "n": 6023,
+      "any_model_feature_changed": 1
+    },
+    {
+      "june_status": "PIF",
+      "sept_status": "CHGOFF",
+      "n": 2,
+      "any_model_feature_changed": 0
+    },
+    {
+      "june_status": "PIF",
+      "sept_status": "EXEMPT",
+      "n": 23,
+      "any_model_feature_changed": 1
+    },
+    {
+      "june_status": "PIF",
+      "sept_status": "PIF",
+      "n": 297084,
+      "any_model_feature_changed": 11
+    }
+  ],
+  "interpretation": "Sensitivity of the existing frozen model, NOT an accuracy gain, NOT a retrained or leakage-free model. Neither June nor September proves original contract-time values."
+}

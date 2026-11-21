@@ -1,0 +1,18 @@
+{
+  "verified_at_utc": "2026-11-21T02:35:14.667713+00:00",
+  "test_exit_code": 0,
+  "tests": 11,
+  "downloaded_sources": 93,
+  "source_bytes": 1578772832,
+  "loans": 494386,
+  "exact_row_identity": true,
+  "frozen_models_unchanged": true,
+  "historical_vintage_verified": false,
+  "approved_for_training": false,
+  "approved_for_lending": false,
+  "source_sha256": {
+    "scripts/collect_underwriting_data.py": "8aa5962fb703358dc1e82b5cf34d4432bbcb6f45914067c15c1f977320de8149",
+    "scripts/write_collection_catalog.py": "51483896f7881561c9ee1eb7dddfcd85ba2b7d0dfa77ffbb1ce78e1272875f54",
+    "tests/test_underwriting_collection.py": "50df04dc45cd8c8eeeff33c81e7fc7cf21b660c182a7ad9cbdb1a7f9ce0d95bc"
+  }
+}

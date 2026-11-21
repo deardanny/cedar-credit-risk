@@ -1,0 +1,74 @@
+[
+  {
+    "fictional": true,
+    "input": {
+      "GrossApproval": 250000,
+      "SBAGuaranteedApproval": 187500.0,
+      "InitialInterestRate": 10.5,
+      "JobsSupported": 5,
+      "NaicsCode": "541611",
+      "ProjectState": "PA",
+      "BusinessAge": "Existing, 5 or more years",
+      "BusinessType": "CORPORATION",
+      "ApprovalDate": "2024-08-01"
+    },
+    "original_prediction": [
+      0.0008646571877731145,
+      100.86021074517552
+    ]
+  },
+  {
+    "fictional": true,
+    "input": {
+      "GrossApproval": 100000,
+      "SBAGuaranteedApproval": 75000.0,
+      "InitialInterestRate": 10.5,
+      "JobsSupported": 1,
+      "NaicsCode": "722511",
+      "ProjectState": "CA",
+      "BusinessAge": "New, Less than 1 Year old",
+      "BusinessType": "INDIVIDUAL",
+      "ApprovalDate": "2024-08-01"
+    },
+    "original_prediction": [
+      0.0042026161230361275,
+      195.44657226814428
+    ]
+  },
+  {
+    "fictional": true,
+    "input": {
+      "GrossApproval": 1000000,
+      "SBAGuaranteedApproval": 750000.0,
+      "InitialInterestRate": 10.5,
+      "JobsSupported": 20,
+      "NaicsCode": "236220",
+      "ProjectState": "TX",
+      "BusinessAge": "Existing, 5 or more years",
+      "BusinessType": "PARTNERSHIP",
+      "ApprovalDate": "2024-08-01"
+    },
+    "original_prediction": [
+      0.0006198415430201759,
+      895.2410964647087
+    ]
+  },
+  {
+    "fictional": true,
+    "input": {
+      "GrossApproval": 50000,
+      "SBAGuaranteedApproval": 37500.0,
+      "InitialInterestRate": 10.5,
+      "JobsSupported": 0,
+      "NaicsCode": "445110",
+      "ProjectState": "NY",
+      "BusinessAge": "Existing, 5 or more years",
+      "BusinessType": "CORPORATION",
+      "ApprovalDate": "2024-08-01"
+    },
+    "original_prediction": [
+      0.0023971668545681012,
+      94.35559821412028
+    ]
+  }
+]

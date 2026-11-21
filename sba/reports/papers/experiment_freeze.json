@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-11-20T21:52:17.904997+00:00",
+  "plan_sha256": "4eb52ba4906798295637587ab9773644f5a6e2b6138a70cb3faf524668432563",
+  "code_sha256": "c0a40d1e1cfa0adf2b96072c59703bbaab679f2f2e918676f3a9603cb8fbd613",
+  "source_sha256": {
+    "data/processed/hour_short_development.pkl": "0bab606a04515edcc699e002966a1bd294aa5cbf57d8d56ee01b35a902b9fa9e",
+    "data/processed/hour_medium_holdout.pkl": "7109db2244e0ac258a8274599a8d05351889439690bb071dee2ba4724a60c28c",
+    "reports/hour/macro_lineage.csv": "156197512603652d6913e93adb7ebfdb5c69ad2f18195ca7e34f852d9073c4a3"
+  },
+  "variants": [
+    "base",
+    "age_logit_joint",
+    "age_logit_iso",
+    "static_macro",
+    "dynamic_macro",
+    "dynamic_macro_iso",
+    "dynamic_macro_revert"
+  ],
+  "not_independent_holdout": true
+}

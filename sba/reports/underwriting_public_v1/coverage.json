@@ -1,0 +1,209 @@
+{
+  "created_utc": "2026-11-21T02:34:55.896852+00:00",
+  "loans": 494386,
+  "by_cohort": [
+    {
+      "cohort": "development",
+      "loans": 485344,
+      "county_exact_mapping": 473950,
+      "fdic_identifier": 437806,
+      "bank_context_matched": 437636,
+      "bds_sector_context_matched": 481640,
+      "qcew_sector_context_matched": 462011,
+      "term_months_present": 485203,
+      "collateral_present": 485344,
+      "borrower_financials_matched": 0
+    },
+    {
+      "cohort": "evaluation_2024",
+      "loans": 9042,
+      "county_exact_mapping": 8813,
+      "fdic_identifier": 7301,
+      "bank_context_matched": 7301,
+      "bds_sector_context_matched": 8979,
+      "qcew_sector_context_matched": 8660,
+      "term_months_present": 9042,
+      "collateral_present": 9042,
+      "borrower_financials_matched": 0
+    }
+  ],
+  "by_approval_year": [
+    {
+      "approval_year": 2009,
+      "loans": 3124,
+      "bds_matched": 3095,
+      "bank_matched": 2893,
+      "qcew_matched": 2960
+    },
+    {
+      "approval_year": 2010,
+      "loans": 33675,
+      "bds_matched": 33469,
+      "bank_matched": 28857,
+      "qcew_matched": 32006
+    },
+    {
+      "approval_year": 2011,
+      "loans": 25770,
+      "bds_matched": 25479,
+      "bank_matched": 23319,
+      "qcew_matched": 24304
+    },
+    {
+      "approval_year": 2012,
+      "loans": 26964,
+      "bds_matched": 26717,
+      "bank_matched": 24992,
+      "qcew_matched": 25644
+    },
+    {
+      "approval_year": 2013,
+      "loans": 28044,
+      "bds_matched": 27815,
+      "bank_matched": 25979,
+      "qcew_matched": 26789
+    },
+    {
+      "approval_year": 2014,
+      "loans": 33478,
+      "bds_matched": 33184,
+      "bank_matched": 31119,
+      "qcew_matched": 31823
+    },
+    {
+      "approval_year": 2015,
+      "loans": 37325,
+      "bds_matched": 36965,
+      "bank_matched": 34325,
+      "qcew_matched": 35464
+    },
+    {
+      "approval_year": 2016,
+      "loans": 38153,
+      "bds_matched": 37831,
+      "bank_matched": 35039,
+      "qcew_matched": 36459
+    },
+    {
+      "approval_year": 2017,
+      "loans": 40656,
+      "bds_matched": 40458,
+      "bank_matched": 37409,
+      "qcew_matched": 38897
+    },
+    {
+      "approval_year": 2018,
+      "loans": 37293,
+      "bds_matched": 37114,
+      "bank_matched": 33951,
+      "qcew_matched": 35601
+    },
+    {
+      "approval_year": 2019,
+      "loans": 32319,
+      "bds_matched": 32063,
+      "bank_matched": 29290,
+      "qcew_matched": 30819
+    },
+    {
+      "approval_year": 2020,
+      "loans": 26084,
+      "bds_matched": 25918,
+      "bank_matched": 23647,
+      "qcew_matched": 24716
+    },
+    {
+      "approval_year": 2021,
+      "loans": 35742,
+      "bds_matched": 35481,
+      "bank_matched": 31794,
+      "qcew_matched": 33867
+    },
+    {
+      "approval_year": 2022,
+      "loans": 32996,
+      "bds_matched": 32721,
+      "bank_matched": 28397,
+      "qcew_matched": 31366
+    },
+    {
+      "approval_year": 2023,
+      "loans": 35229,
+      "bds_matched": 34959,
+      "bank_matched": 31293,
+      "qcew_matched": 33629
+    },
+    {
+      "approval_year": 2024,
+      "loans": 27534,
+      "bds_matched": 27350,
+      "bank_matched": 22633,
+      "qcew_matched": 26327
+    }
+  ],
+  "source_table_rows": {
+    "bds_state_sector": 44574,
+    "fdic_quarterly": 427367,
+    "qcew_county_state_sector": 1201106
+  },
+  "source_years": {
+    "bds": [
+      1978,
+      2023
+    ],
+    "fdic": [
+      "2008-12-31",
+      "2026-06-30"
+    ],
+    "qcew": [
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ]
+  },
+  "field_coverage": {
+    "term_months": 0.9997147977491272,
+    "rate_type": 1.0,
+    "collateral_reported": 1.0,
+    "business_age_detail": 0.9971965225552504,
+    "naics6": 0.9999959545780018,
+    "county_fips": 0.9764900300574855,
+    "bds_estabs_exit_rate": 0.9923804476663983,
+    "bank_equity_assets": 0.8999789638056094,
+    "qcew_annual_avg_emplvl": 0.952031408656394
+  },
+  "zero_missing_fabrication": true,
+  "exact_source_row_identity_verified": true,
+  "joins_are_many_to_one": true,
+  "historical_vintage_verified": false,
+  "approved_for_training": false,
+  "approved_for_lending": false,
+  "time_policy": {
+    "bds_qcew": "reference year = approval year - 2; revision history not certified",
+    "fdic": "latest report with report_date + 90 days <= approval date, maximum additional age 185 days; actual filing/publication timestamps not certified"
+  },
+  "limitations": [
+    "BDS establishment exits are not loan defaults",
+    "FDIC financials describe the lender, not the borrower",
+    "QCEW payroll describes local workers, not applicant revenue",
+    "QCEW suppressed cells and unmatched historical geographies stay missing",
+    "SBA snapshot fields lack a complete approval-time revision history",
+    "SEC official company directory request returned HTTP 403; no borrower financials joined"
+  ]
+}

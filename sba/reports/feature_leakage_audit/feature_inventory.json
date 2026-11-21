@@ -1,0 +1,337 @@
+[
+  {
+    "feature": "log_amount",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "대출금액 로그",
+    "source_dependencies": [
+      "GrossApproval"
+    ],
+    "finding": "이번 대조에서 변경 미검출",
+    "note": "6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음."
+  },
+  {
+    "feature": "guarantee_share",
+    "union_comparable_rows": 478504,
+    "changed_rows": 32,
+    "fit_changed": 8,
+    "calibration_changed": 1,
+    "assessment_changed": 3,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "SBA 보증 비율",
+    "source_dependencies": [
+      "SBAGuaranteedApproval",
+      "GrossApproval"
+    ],
+    "finding": "사후 변경 확인",
+    "note": "신청 시점 원본을 확보하기 전까지 엄격한 과거 심사 평가의 검증된 입력으로 취급하지 않음. 변경 원인이 결과 반영인지 정정인지는 미확정."
+  },
+  {
+    "feature": "initial_rate",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "초기 금리",
+    "source_dependencies": [
+      "InitialInterestRate"
+    ],
+    "finding": "이번 대조에서 변경 미검출",
+    "note": "6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음."
+  },
+  {
+    "feature": "log_jobs",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "지원 일자리 수 로그",
+    "source_dependencies": [
+      "JobsSupported"
+    ],
+    "finding": "이번 대조에서 변경 미검출",
+    "note": "6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음. 넓은 원본의 일자리 수 수정 후보 23건은 현재 모델 모집단 밖이며, 이 숫자는 추가 개별 검증을 거친 확정 누수 건수는 아님."
+  },
+  {
+    "feature": "log_amount_per_job",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "대출금액/일자리 파생값",
+    "source_dependencies": [
+      "GrossApproval",
+      "JobsSupported"
+    ],
+    "finding": "이번 대조에서 변경 미검출",
+    "note": "6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음. 넓은 원본의 일자리 수 수정 후보 23건은 현재 모델 모집단 밖이며, 이 숫자는 추가 개별 검증을 거친 확정 누수 건수는 아님."
+  },
+  {
+    "feature": "log_unguaranteed_amount",
+    "union_comparable_rows": 478504,
+    "changed_rows": 32,
+    "fit_changed": 8,
+    "calibration_changed": 1,
+    "assessment_changed": 3,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "비보증 금액 로그",
+    "source_dependencies": [
+      "GrossApproval",
+      "SBAGuaranteedApproval"
+    ],
+    "finding": "사후 변경 확인",
+    "note": "신청 시점 원본을 확보하기 전까지 엄격한 과거 심사 평가의 검증된 입력으로 취급하지 않음. 변경 원인이 결과 반영인지 정정인지는 미확정."
+  },
+  {
+    "feature": "us_unemployment",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "전국 실업률",
+    "source_dependencies": [
+      "UNRATE",
+      "ApprovalDate"
+    ],
+    "finding": "과거 공개 버전 연결 검증",
+    "note": "6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음."
+  },
+  {
+    "feature": "us_unemployment_change",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "전국 실업률 전년 변화",
+    "source_dependencies": [
+      "UNRATE",
+      "ApprovalDate"
+    ],
+    "finding": "과거 공개 버전 연결 검증",
+    "note": "6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음."
+  },
+  {
+    "feature": "fed_funds",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "연방기금금리",
+    "source_dependencies": [
+      "FEDFUNDS",
+      "ApprovalDate"
+    ],
+    "finding": "과거 공개 버전 연결 검증",
+    "note": "6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음."
+  },
+  {
+    "feature": "prime_rate",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "우대금리",
+    "source_dependencies": [
+      "MPRIME",
+      "ApprovalDate"
+    ],
+    "finding": "과거 공개 버전 연결 검증",
+    "note": "6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음."
+  },
+  {
+    "feature": "inflation_yoy",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "물가 전년 변화율",
+    "source_dependencies": [
+      "CPIAUCSL",
+      "ApprovalDate"
+    ],
+    "finding": "과거 공개 버전 연결 검증",
+    "note": "6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음."
+  },
+  {
+    "feature": "industrial_growth_yoy",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "산업생산 전년 변화율",
+    "source_dependencies": [
+      "INDPRO",
+      "ApprovalDate"
+    ],
+    "finding": "과거 공개 버전 연결 검증",
+    "note": "6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음."
+  },
+  {
+    "feature": "yield_curve",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "장단기 금리차",
+    "source_dependencies": [
+      "GS10",
+      "TB3MS",
+      "ApprovalDate"
+    ],
+    "finding": "과거 공개 버전 연결 검증",
+    "note": "6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음."
+  },
+  {
+    "feature": "state_unemployment",
+    "union_comparable_rows": 478504,
+    "changed_rows": 3,
+    "fit_changed": 2,
+    "calibration_changed": 0,
+    "assessment_changed": 1,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "주별 실업률",
+    "source_dependencies": [
+      "ProjectState",
+      "stateUR",
+      "ApprovalDate"
+    ],
+    "finding": "사후 변경 확인",
+    "note": "경제지표는 과거 공개 버전이나 사후 변경된 ProjectState로 과거 지역을 선택하는 문제가 전파됨."
+  },
+  {
+    "feature": "state_unemployment_change",
+    "union_comparable_rows": 478504,
+    "changed_rows": 4,
+    "fit_changed": 2,
+    "calibration_changed": 0,
+    "assessment_changed": 2,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "주별 실업률 전년 변화",
+    "source_dependencies": [
+      "ProjectState",
+      "stateUR",
+      "ApprovalDate"
+    ],
+    "finding": "사후 변경 확인",
+    "note": "경제지표는 과거 공개 버전이나 사후 변경된 ProjectState로 과거 지역을 선택하는 문제가 전파됨."
+  },
+  {
+    "feature": "state_unemployment_gap",
+    "union_comparable_rows": 478504,
+    "changed_rows": 3,
+    "fit_changed": 2,
+    "calibration_changed": 0,
+    "assessment_changed": 1,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "주별−전국 실업률 차이",
+    "source_dependencies": [
+      "ProjectState",
+      "stateUR",
+      "UNRATE",
+      "ApprovalDate"
+    ],
+    "finding": "사후 변경 확인",
+    "note": "경제지표는 과거 공개 버전이나 사후 변경된 ProjectState로 과거 지역을 선택하는 문제가 전파됨."
+  },
+  {
+    "feature": "rate_over_prime",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "초기 금리−우대금리",
+    "source_dependencies": [
+      "InitialInterestRate",
+      "MPRIME",
+      "ApprovalDate"
+    ],
+    "finding": "이번 대조에서 변경 미검출",
+    "note": "6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음."
+  },
+  {
+    "feature": "industry",
+    "union_comparable_rows": 478504,
+    "changed_rows": 1,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 1,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "업종 대분류",
+    "source_dependencies": [
+      "NaicsCode"
+    ],
+    "finding": "사후 변경 확인",
+    "note": "신청 시점 원본을 확보하기 전까지 엄격한 과거 심사 평가의 검증된 입력으로 취급하지 않음. 변경 원인이 결과 반영인지 정정인지는 미확정."
+  },
+  {
+    "feature": "state",
+    "union_comparable_rows": 478504,
+    "changed_rows": 4,
+    "fit_changed": 2,
+    "calibration_changed": 0,
+    "assessment_changed": 2,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "사업장 소재 주",
+    "source_dependencies": [
+      "ProjectState"
+    ],
+    "finding": "사후 변경 확인",
+    "note": "신청 시점 원본을 확보하기 전까지 엄격한 과거 심사 평가의 검증된 입력으로 취급하지 않음. 변경 원인이 결과 반영인지 정정인지는 미확정."
+  },
+  {
+    "feature": "business_age",
+    "union_comparable_rows": 478504,
+    "changed_rows": 0,
+    "fit_changed": 0,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "신생/기존 사업 분류",
+    "source_dependencies": [
+      "BusinessAge"
+    ],
+    "finding": "이번 대조에서 변경 미검출",
+    "note": "원본 상세 응답 변경이 있었지만 현재 New/Existing/Unknown 변환 결과는 같음."
+  },
+  {
+    "feature": "business_type",
+    "union_comparable_rows": 478504,
+    "changed_rows": 22,
+    "fit_changed": 16,
+    "calibration_changed": 0,
+    "assessment_changed": 0,
+    "interpretation": "Union of conservative linkage passes, with audited source fields omitted from at least one pass; nonchanges do not prove immutability.",
+    "label": "사업체 법적 형태",
+    "source_dependencies": [
+      "BusinessType"
+    ],
+    "finding": "사후 변경 확인",
+    "note": "신청 시점 원본을 확보하기 전까지 엄격한 과거 심사 평가의 검증된 입력으로 취급하지 않음. 변경 원인이 결과 반영인지 정정인지는 미확정."
+  }
+]

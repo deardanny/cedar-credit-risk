@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-06-30",
+  "horizon_months": 36,
+  "model_freeze": "2022-01-01",
+  "seed": 271828,
+  "archive": "data/raw/Archive.zip",
+  "dictionary": "data/raw/7a_504_foia_data_dictionary.xlsx",
+  "requirements_pdf": "data/raw/PredictiveScoringModel_Req.pdf",
+  "windows": {
+    "development": [
+      "2010-01-01",
+      "2013-12-31"
+    ],
+    "tuning": [
+      "2017-01-01",
+      "2017-12-31"
+    ],
+    "refit": [
+      "2010-01-01",
+      "2017-12-31"
+    ],
+    "calibration": [
+      "2018-01-01",
+      "2018-12-31"
+    ],
+    "test": [
+      "2022-01-01",
+      "2023-06-30"
+    ]
+  }
+}

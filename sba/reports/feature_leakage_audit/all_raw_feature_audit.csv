@@ -1,0 +1,9 @@
+raw_field,union_comparable_rows,changed_rows,fit_changed,assessment_changed
+GrossApproval,478504,0,0,0
+SBAGuaranteedApproval,478504,32,8,3
+InitialInterestRate,478504,0,0,0
+JobsSupported,478504,0,0,0
+NaicsCode,478504,25,4,1
+ProjectState,478504,4,2,2
+BusinessAge,478504,31,19,0
+BusinessType,478504,22,16,0

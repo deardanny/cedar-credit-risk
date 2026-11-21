@@ -1,0 +1,79 @@
+{
+  "project_population": 494386,
+  "roles": {
+    "fit": 329706,
+    "other_project": 142766,
+    "calibration": 13282,
+    "assessment": 8632
+  },
+  "main_key": [
+    "borrower_key",
+    "app",
+    "disb",
+    "program"
+  ],
+  "strict_equality_fields": [
+    "BorrName",
+    "BorrStreet",
+    "BorrCity",
+    "BorrState",
+    "BorrZip",
+    "BankName",
+    "BankFDICNumber",
+    "BankNCUANumber"
+  ],
+  "no_public_loan_id": true,
+  "audited_raw_fields": [
+    "GrossApproval",
+    "SBAGuaranteedApproval",
+    "InitialInterestRate",
+    "JobsSupported",
+    "NaicsCode",
+    "ProjectState",
+    "BusinessAge",
+    "BusinessType"
+  ],
+  "audited_transformed_loan_fields": [
+    "log_amount",
+    "guarantee_share",
+    "initial_rate",
+    "log_jobs",
+    "industry",
+    "state",
+    "business_age",
+    "business_type",
+    "log_amount_per_job",
+    "log_unguaranteed_amount"
+  ],
+  "sources": [
+    {
+      "old_rows": 545751,
+      "new_rows": 545751,
+      "old_eligible_unique": 457481,
+      "new_eligible_unique": 457477,
+      "old_ambiguous_rows": 21219,
+      "new_ambiguous_rows": 21223,
+      "unique_matches": 457212,
+      "strict_matches": 445580,
+      "period": "FY2010_FY2019"
+    },
+    {
+      "old_rows": 388338,
+      "new_rows": 403644,
+      "old_eligible_unique": 302405,
+      "new_eligible_unique": 313690,
+      "old_ambiguous_rows": 14747,
+      "new_ambiguous_rows": 15531,
+      "unique_matches": 300319,
+      "strict_matches": 292484,
+      "period": "FY2020_Present"
+    }
+  ],
+  "date_linkage_keys": [
+    "borrower_key",
+    "amount",
+    "program"
+  ],
+  "strict_project_matches": 458319,
+  "strict_all_matches": 738064
+}

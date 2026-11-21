@@ -1,0 +1,14 @@
+{
+  "sec_company_ticker_directory": {
+    "url": "https://www.sec.gov/files/company_tickers.json",
+    "status": "HTTP 403 during official download",
+    "borrower_financials_joined": 0
+  },
+  "private_data": [
+    "borrower financial statements",
+    "monthly repayment and delinquency records",
+    "recovery/guarantee cash flows",
+    "rejected applications"
+  ],
+  "statement": "No private data was obtained. Do not substitute lender or industry financials for borrower financials."
+}

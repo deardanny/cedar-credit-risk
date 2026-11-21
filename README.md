@@ -1,4 +1,12 @@
-# Cedar — Credit Risk Modeling & Scoring API
+# Cedar — Credit Risk Research & Scoring
+
+## Latest: SBA gross charge-off study (November 2026)
+
+The [SBA research package](sba/README.md) adds a frozen 24-month model, training and audit code, aggregate evaluations, all-feature snapshot checks, and a [12-page Korean report](sba/reports/Cedar_SBA_Analysis_2026-11-20.pdf). On 8,632 historical loans, predicted gross charge-offs moved from $19.01M to $4.60M against $4.01M observed, while ROC-AUC fell from 0.709 to 0.653. Eight input columns had changes between public snapshots. This is retrospective research, **not a model approved for lending or a bank net-loss estimate**.
+
+[Read the SBA case study](https://hdjang.com/projects/sba-credit-risk/) · [Run the frozen model](sba/README.md#run-the-published-model)
+
+## Earlier: UCI credit-card benchmark & FastAPI
 
 **A reproducible probability model, evaluated offline and served through the same validated FastAPI interface.**
 
@@ -74,3 +82,4 @@ The cohort is historical (2005). There is no external microfinance validation, c
 Cedar's original hackathon application was team work, with Daniel's documented role in DevOps and integration. This repository is the later independent modeling/API baseline, developed with AI-assisted tooling. It should not be described as the team's original production credit model.
 
 [Korean setup and study guide](README.ko.md) · [Publication checks](PUBLICATION_VALIDATION.md) · [Portfolio](https://hdjang.com/projects/cedar/)
+

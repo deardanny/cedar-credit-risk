@@ -1,0 +1,8 @@
+{
+  "existing_test_module": "tests/test_origination_v2.py",
+  "tests_run": 6,
+  "failures": 0,
+  "all_heldout_predictions_reproduced": 8632,
+  "changed_loans_raw_records_verified": 118,
+  "scope": "Audit only; no model retraining or serving changes."
+}

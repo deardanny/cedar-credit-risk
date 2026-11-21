@@ -1,0 +1,28 @@
+{
+  "scope": "Research audit recommendation; this file does not modify or disable the existing serving model.",
+  "current_model_retrained": false,
+  "approved_for_lending": false,
+  "requires_origination_provenance_before_clean_backtest": [
+    "guarantee_share",
+    "log_unguaranteed_amount",
+    "state_unemployment",
+    "state_unemployment_change",
+    "state_unemployment_gap",
+    "industry",
+    "state",
+    "business_type"
+  ],
+  "no_observed_change_is_not_original_value_verification": true,
+  "previously_excluded": [
+    "TermInMonths",
+    "term_months"
+  ],
+  "data_needed": [
+    "Immutable loan ID and application-time feature snapshot",
+    "Field valid-from/recorded-at timestamps and amendment reasons",
+    "Original project location and NAICS at application",
+    "Original guaranteed amount and business legal form",
+    "Disbursement date history and outcome reporting timestamps"
+  ],
+  "appropriate_remedy": "Use evidenced application-time values or evaluate a separately trained challenger that omits unverified dependencies. Merely replacing inputs at inference does not repair existing training."
+}

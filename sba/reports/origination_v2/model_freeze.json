@@ -1,0 +1,14 @@
+{
+  "frozen_utc": "2026-11-20T23:36:08.174904+00:00",
+  "model_sha256": "76ca2f6c6910a6cd2d32cb36a12c90af03f368f3b336519fd8a0f074c70f1edc",
+  "selection_sha256": "6fcf24f9c7d34e3466c3adb2861483206a446851e99a58a8a3ae7314433a5f1c",
+  "fit_loans": 329706,
+  "calibration_loans": 13282,
+  "fit_events": 1743,
+  "calibration_events": 36,
+  "calibration_first_disbursement": "2020-07-01 00:00:00",
+  "calibration_last_disbursement": "2022-06-30 00:00:00",
+  "last_label_end": "2024-06-30 00:00:00",
+  "borrower_overlap": 0,
+  "amount_scale": 0.7915048804451088
+}

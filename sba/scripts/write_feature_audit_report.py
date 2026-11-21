@@ -1,0 +1,98 @@
+"""Render the evidence-backed feature audit; no models or training inputs are changed."""
+import argparse,json,hashlib
+from pathlib import Path
+import pandas as pd
+from openpyxl import load_workbook
+
+p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('--output',type=Path,required=True);a=p.parse_args();ROOT=a.root;OUT=a.output
+def read(n):return json.load(open(OUT/n))
+def save(n,d):(OUT/n).write_text(json.dumps(d,ensure_ascii=False,indent=2,default=str)+'\n')
+e=read('snapshot_prediction_impact.json');runtime=read('lineage_and_runtime_audit.json');dates=read('date_dependency_audit.json');matrix=pd.read_csv(OUT/'all_21_feature_audit.csv');raw=pd.read_csv(OUT/'all_raw_feature_audit.csv')
+labels={'log_amount':'대출금액 로그','guarantee_share':'SBA 보증 비율','initial_rate':'초기 금리','log_jobs':'지원 일자리 수 로그','log_amount_per_job':'대출금액/일자리 파생값','log_unguaranteed_amount':'비보증 금액 로그','us_unemployment':'전국 실업률','us_unemployment_change':'전국 실업률 전년 변화','fed_funds':'연방기금금리','prime_rate':'우대금리','inflation_yoy':'물가 전년 변화율','industrial_growth_yoy':'산업생산 전년 변화율','yield_curve':'장단기 금리차','state_unemployment':'주별 실업률','state_unemployment_change':'주별 실업률 전년 변화','state_unemployment_gap':'주별−전국 실업률 차이','rate_over_prime':'초기 금리−우대금리','industry':'업종 대분류','state':'사업장 소재 주','business_age':'신생/기존 사업 분류','business_type':'사업체 법적 형태'}
+sources={'log_amount':['GrossApproval'],'guarantee_share':['SBAGuaranteedApproval','GrossApproval'],'initial_rate':['InitialInterestRate'],'log_jobs':['JobsSupported'],'log_amount_per_job':['GrossApproval','JobsSupported'],'log_unguaranteed_amount':['GrossApproval','SBAGuaranteedApproval'],'us_unemployment':['UNRATE','ApprovalDate'],'us_unemployment_change':['UNRATE','ApprovalDate'],'fed_funds':['FEDFUNDS','ApprovalDate'],'prime_rate':['MPRIME','ApprovalDate'],'inflation_yoy':['CPIAUCSL','ApprovalDate'],'industrial_growth_yoy':['INDPRO','ApprovalDate'],'yield_curve':['GS10','TB3MS','ApprovalDate'],'state_unemployment':['ProjectState','stateUR','ApprovalDate'],'state_unemployment_change':['ProjectState','stateUR','ApprovalDate'],'state_unemployment_gap':['ProjectState','stateUR','UNRATE','ApprovalDate'],'rate_over_prime':['InitialInterestRate','MPRIME','ApprovalDate'],'industry':['NaicsCode'],'state':['ProjectState'],'business_age':['BusinessAge'],'business_type':['BusinessType']}
+inventory=[]
+for r in matrix.to_dict('records'):
+    c=r['feature'];status='사후 변경 확인' if r['changed_rows'] else '이번 대조에서 변경 미검출'
+    if c in ['us_unemployment','us_unemployment_change','fed_funds','prime_rate','inflation_yoy','industrial_growth_yoy','yield_curve']:status='과거 공개 버전 연결 검증'
+    note='6월·9월 동일함은 최초 신청 당시 동일함을 증명하지 않음.'
+    if r['changed_rows']:note='신청 시점 원본을 확보하기 전까지 엄격한 과거 심사 평가의 검증된 입력으로 취급하지 않음. 변경 원인이 결과 반영인지 정정인지는 미확정.'
+    if c in ['state_unemployment','state_unemployment_change','state_unemployment_gap']:note='경제지표는 과거 공개 버전이나 사후 변경된 ProjectState로 과거 지역을 선택하는 문제가 전파됨.'
+    if c=='business_age':note='원본 상세 응답 변경이 있었지만 현재 New/Existing/Unknown 변환 결과는 같음.'
+    if c in ['log_jobs','log_amount_per_job']:note+=' 넓은 원본의 일자리 수 수정 후보 23건은 현재 모델 모집단 밖이며, 이 숫자는 추가 개별 검증을 거친 확정 누수 건수는 아님.'
+    inventory.append({**r,'label':labels[c],'source_dependencies':sources[c],'finding':status,'note':note})
+save('feature_inventory.json',inventory)
+policy={'scope':'Research audit recommendation; this file does not modify or disable the existing serving model.','current_model_retrained':False,'approved_for_lending':False,'requires_origination_provenance_before_clean_backtest':[r['feature'] for r in inventory if r['changed_rows']],'no_observed_change_is_not_original_value_verification':True,'previously_excluded':['TermInMonths','term_months'],'data_needed':['Immutable loan ID and application-time feature snapshot','Field valid-from/recorded-at timestamps and amendment reasons','Original project location and NAICS at application','Original guaranteed amount and business legal form','Disbursement date history and outcome reporting timestamps'],'appropriate_remedy':'Use evidenced application-time values or evaluate a separately trained challenger that omits unverified dependencies. Merely replacing inputs at inference does not repair existing training.'}
+save('feature_audit_policy.json',policy)
+wb=load_workbook(ROOT/'data/raw/7a_504_foia_data_dictionary.xlsx',read_only=True,data_only=True);ws=wb['7(a) Data Dictionary'];definitions=[]
+for rownum,row in enumerate(ws.values,1):
+    if row[0] in set(sum(sources.values(),[]))|{'FirstDisbursementDate'}:definitions.append({'field':row[0],'definition':row[1],'sheet':ws.title,'range':f'A{rownum}:B{rownum}'})
+wb.close();save('dictionary_evidence.json',definitions)
+lines=['# Cedar 현재 모델 전체 입력 시점·누수 감사','',
+ '**현재 21개 입력을 전부 점검했다. 8개 입력에서 사후 변경이 관측됐고, 이를 쓰는 학습·보정·평가 자료가 실제로 존재한다. 직접적인 정답 열 입력이나 미래 경제지표 참조는 이번 검증에서 발견되지 않았다. 최초 신청 시점 값이 복원된 모델이라는 보증은 아직 불가능하다.**','',
+ '## 범위와 최종 결과','',
+ '- 현재 기본 모델: `models/origination_v2_2024.joblib`, `recent_poisson`, 24개월 총상각 확률·금액. 확률과 금액 파이프라인의 실제 선택 열을 모두 읽었다. 모델은 21개 열을 선택하고, 금액은 별도로 최종 예상 총상각액 환산에도 쓰인다.',
+ '- 원본: 제공받은 2026-06-30 Archive.zip와 SBA 2026-09-30 7(a) FY2010 이후 CSV 두 개. 494,386개 프로젝트 개발/평가 후보 중 보수적 다중 연결 후 478,504개를 비교했다.',
+ '- 최종 변경 대출 59개: 현재 최종 모델 학습 26개, 보정 1개, 평가 6개, 그 밖의 프로젝트 표본 26개. 이는 2026년 3개월간 관측한 변경 건수이며 모든 과거 변경의 총수나 누수율은 아니다.',
+ '- 변경된 모델 입력: 보증 비율, 비보증 금액 로그, 사업체 형태, 업종, 사업장 소재 주, 주별 실업률, 주별 실업률 변화, 주별−전국 실업률 차이.',
+ '- 59개 변경 대출의 양쪽 원본 118개 레코드를 `csv.DictReader`로 다시 읽어 검증했다. 원본 값과 저장된 모델 학습용 가공 값도 연결 가능한 전체 478,504개에서 대조했다.','',
+ '## 핵심 원본 필드','',
+ '| 원본 필드 | 변경 관측 건수 | 실제 입력에 미친 영향 |','|---|---:|---|']
+explain={'GrossApproval':'최종 확정 표본에서 금액 변경 미검출. 1차 후보 1건은 다른 연결 방식과 충돌하여 제외.','SBAGuaranteedApproval':'보증 비율 및 비보증 금액 로그가 변경.','InitialInterestRate':'현재 모집단에서 변경 미검출.','JobsSupported':'현재 모집단에서 변경 미검출. 넓은 원본의 수정 후보는 아래 한계 참고.','NaicsCode':'세부 코드 변경 중 대분류 industry가 실제 바뀐 대출은 1건.','ProjectState':'4건 변경. 연결되는 과거 주별 경제지표도 변경.','BusinessAge':'상세 원본 응답은 바뀌었으나 모델의 신생/기존/미상 분류는 동일.','BusinessType':'현재 모델의 사업체 형태 입력이 변경.'}
+for r in raw.to_dict('records'):lines.append(f'| `{r["raw_field"]}` | {r["changed_rows"]:,} | {explain[r["raw_field"]]} |')
+lines+=['', '## 21개 실제 입력의 전체 목록','',
+ '| 모델 입력 | 뜻 | 변경 대출 수 | 최종 학습 / 평가에서 변경 | 판정 |','|---|---|---:|---:|---|']
+for r in inventory:lines.append(f'| `{r["feature"]}` | {r["label"]} | {r["changed_rows"]:,} | {r["fit_changed"]} / {r["assessment_changed"]} | {r["finding"]} |')
+lines+=['', '모든 행의 비교 표본은 최종 연결 합집합 478,504건이다. 연결 방식별로 확인할 수 있는 변경이 다르므로 0건을 불변 증거로 해석하면 안 된다. 상세 의존성과 한계는 `feature_inventory.json`에 있다.','',
+ '## 실제 사례와 예측 영향','',
+ '- **RabCup Corp.**: 2018-02-02 승인, $250,000. 6월 CA → 9월 NV. 지역 실업률을 선택하는 기준도 바뀌었다. 같은 고정 모델에 6월 입력을 넣으면 2년 총상각 확률 1.565%, 예상 총상각액 $2,895; 9월 입력을 넣으면 0.506%, $803이었다. 2018년 당시 실제 소재지는 두 2026년 파일만으로 확정할 수 없다.',
+ '- **VICTOR COPIER LLC**: 2024-08-16 승인, 평가 표본. 보증금액 $127,500 → $112,500, 보증 비율 85% → 75%. 고정 모델의 예상 총상각액은 약 $2,297 → $648이었다.',
+ '- **Infinity Communications and Compliance Inc.**: 2024-08-09 승인, 평가 표본. NAICS 541512 → 561110으로 바뀌어 업종 대분류도 Professional services → Administrative services로 바뀌었다.',
+ '- **Izakaya Mita, Inc.**: 2013-07-11 승인, 학습 표본. 사업체 형태가 INDIVIDUAL → CORPORATION으로 바뀌었다.',
+ '- 이것은 입력 변경에 대한 민감도이지 누수 제거 후 정확도 개선 결과가 아니다. 6월 입력 또한 원래 신청 시점의 입력으로 검증된 것이 아니다. 상각 상태는 폐업 여부를 뜻하지 않는다.','',
+ '## 경제지표와 정답 입력 검사','',
+ '- ALFRED 원본 320개 파일의 다운로드 URL, 빈티지 날짜, 열 이름, 수집 당시 SHA-256을 모두 확인했다. 64개 분기 × 58개 시계열 = 3,712개 기록을 원본에서 독립적으로 다시 계산했고, 저장된 값·전년 변화·관측일과 불일치가 없었다.',
+ '- 프로젝트 494,386개 대출의 경제지표를 별도 조인 방식으로 재계산했다. 실제 모델이 붙이는 11개 경제 파생 입력과 전부 같았고, 승인일 이후 빈티지를 쓰는 행은 0개였다.',
+ '- 과거 빈티지와 나중 빈티지의 동일 관측월 값이 실제로 다른 예도 저장했다. 모델은 최신 수정본을 과거에 붙이는 방식이 아니라 승인 분기 시작일의 ALFRED 빈티지를 쓴다. [ALFRED 공식 설명](https://alfred.stlouisfed.org/help)은 과거 공개 버전을 제공한다고 설명한다.',
+ '- 다만 **3,776개 대출은 승인일과 빈티지 날짜가 같은 날**이다. 두 자료 모두 일 단위이고 승인·발표 시각이 없어서 당일 발표 전 심사까지 무누수라고 보증하지 않는다. 엄격한 장중 심사 검증은 전일 빈티지 또는 실제 발표 시각이 필요하다.',
+ '- 주별 지표의 숫자가 당시 공개된 값이어도, 회사 소재 주가 사후 변경됐으면 연결 결과가 달라진다. 따라서 지역 지표 3개도 소재지 원본 검증을 함께 요구한다.',
+ '- 480개 표본에서 상각일·상각액·완납일·상태·기간·기존 경제지표 열을 임의의 극단값으로 바꾸거나 제거해도 확률과 금액 예측이 완전히 같았다. 2009~2024년 각 연도의 미래 빈티지를 바꾸거나 삭제하는 검사도 통과했다.',
+ '- 최종 평가 8,632개 대출의 저장된 예측을 전부 재현했다. 기존 관련 테스트 6개도 통과했다. 이는 실행 경로 검증이지 실제 심사 성능 승인이나 원본 데이터 전체의 무누수 인증이 아니다.','',
+ '## 날짜, 학습 분리, 결과값의 시간 문제','',
+ f'- 날짜를 연결 키에서 뺀 별도 대조 {dates["date_independent_project_matches"]:,}개에서 승인일 변경은 0개, 최초 지급일 변경은 **{dates["disbursement_date_changed"]:,}개**였다. 지급일은 모델의 직접 입력은 아니지만 24개월 결과 관측 구간과 학습 포함 여부를 결정한다.',
+ '- 지급일만 6월/9월 값으로 바꾸고 상각일을 9월 값으로 고정한 검사에서는 24개월 상각 정답의 변화가 0건이었다. 그러나 2024-07-01 이전에 관측기간이 끝났는지에 따른 학습 후보 포함 여부는 **21건**에서 달라졌다. 따라서 날짜 계보도 필요하다.',
+ '- 2018/2019/2020/2024 가상 학습 시점 모두 학습·보정 대상의 24개월 관측 종료일이 기준일보다 앞섰고, 현재 차주 키 기준 학습/보정/평가 교집합은 0개였다.',
+ '- 다만 실제 결과 자료는 2026년에 내려받은 기록이다. 과거 날짜의 상각·금액이 가상 학습일 당시 보고됐는지까지 증명하지 못한다. 결과 사건일과 보고·정정일은 별도다. Y에 이후 발생한 결과를 두는 것 자체가 누수는 아니지만, 과거 시점에 모델을 학습했다고 평가하려면 그때 이미 보고된 정답만 써야 한다.',
+ '- 차주 키는 이름·주소 기반이다. 주소/명칭 변경으로 같은 회사가 별개 키가 되는 문제를 완전히 배제하지 못한다. 평가 데이터는 이전 개발에서 이미 살펴봤으므로 독립적인 새 평가도 아니다.','',
+ '## 연결 방식과 오탐 제거','',
+ '- 기본 연결: 차주 이름/주소/우편번호 해시 + 승인일 + 최초 지급일 + 프로그램. 금액·보증·금리·일자리·업종·사업장 주·업력·사업체 형태·결과를 연결 키로 쓰지 않았다. 은행과 원문 신원 정보도 일치해야 했다.',
+ '- 날짜 검사 연결: 차주 해시 + 금액 + 프로그램. 승인일/지급일은 키에서 제외했다. 기본 연결의 금액 변경 탐지를 보완하는 별도 검사이므로 금액의 불변성을 이 연결만으로 판단하지 않았다.',
+ '- 소재지 변경 검사: 이름·승인일·지급일·프로그램이 유일하게 연결되는 행을 찾고 은행과 금액 일치를 확인했다. 주소 일치를 강제하면 실제 이동 사례를 놓치므로 이 검사에서는 주소를 키에 쓰지 않았다.',
+ '- 어느 한 시점이라도 동일 키가 여러 개인 경우 제외했다. 여러 연결 방식이 충돌한 3개 쌍(같은 회사의 서로 다른 금액 대출 2개)은 최종 판정에서 모두 제외했다. 처음 보였던 금액 $30,000 → $315,000 사례는 이에 해당하므로 확정 변경으로 세지 않았다. 기본 1차 보증 변경 33건도 최종적으로 32건으로 정리됐다.',
+ '- 공개 고유 대출 ID가 없으므로 연결 오류 가능성이 0이라고 주장하지 않는다. 연결되지 않은 사례를 안정적이라고 간주하지 않았다.',
+ '- 넓은 원본의 기본 대조에서는 현재 모델 모집단 밖에서도 JobsSupported 수정 후보 23건이 나왔다. 이를 현재 모델의 23건 누수라고 해석하지 않았으며, 별도 원본 검증을 거친 확정 건수로 제시하지 않는다. 현재 모델 표본의 0건 역시 일자리 수 필드가 영구히 불변이라는 증거는 아니다.','',
+ '## 판정과 다음 모델에 적용할 원칙','',
+ '**확정된 것은 사후 수정과 실제 모델 입력의 시점 검증 공백이다. 모든 수정이 상각 결과에 의해 일어났다는 인과관계나, 정확도가 얼마나 부풀려졌는지는 확정되지 않았다.** 정정으로 원래 사실에 더 가까워진 경우와 실제 사업 정보가 나중에 바뀐 경우를 구분할 이력이 없다.',
+ '수정이 확인된 8개 입력은 신청 시점 근거를 확보하기 전까지 누수 없는 과거 심사 평가의 검증된 입력으로 취급할 수 없다. 업종·지역 등의 항목 자체를 영구히 금지한다는 뜻은 아니다. 신청 당시 값으로 복원하거나, 그 의존성을 뺀 별도 모델을 재학습하고 재평가해야 한다. 기존 학습을 그대로 두고 입력만 삭제·교체하는 것은 해결책이 아니다.',
+ 'Cedar 기본 모델과 기존 결과는 보존했다. 이번 작업은 전수 감사이며 수정 모델 학습은 수행하지 않았다. `feature_audit_policy.json`은 발견 사항과 권고를 저장한 문서이고 실행 중 모델에서 8개 입력을 제거하는 장치는 아니다. 기존 `approved_for_lending=false` 상태가 유지된다.',
+ 'Cedar의 상담 계산은 기본적으로 2024-07-01 연구 기준을 사용한다. 2026년 실시간 경제 상황으로 계산하는 기능이 아니며, 이는 별도의 시점/적용 대상 한계다. 이전 비교 모델의 실제 열 목록도 읽었고 같은 원본 입력 의존성을 공유한다. 그 모델의 추가 `age_quarter`는 앞으로 계산하는 분기 번호이며 공개 데이터의 실제 상환 기간을 입력하는 것이 아니다.','',
+ '## 재현과 증거 파일','',
+ '```sh', '.venv/bin/python scripts/audit_feature_snapshots.py --output /private/tmp/sba-feature-recheck', '.venv/bin/python scripts/audit_feature_lineage.py --output /private/tmp/sba-feature-recheck', '.venv/bin/python scripts/audit_feature_impact.py --output /private/tmp/sba-feature-recheck', '.venv/bin/python scripts/write_feature_audit_report.py --output /private/tmp/sba-feature-recheck', '```','',
+ '- `all_21_feature_audit.csv`, `feature_inventory.json`: 모든 실제 입력과 판정/의존성.',
+ '- `all_raw_feature_audit.csv`: 충돌 제거 후 원본 필드 수정 집계.',
+ '- `prediction_snapshot_sensitivity.csv`: 수정 대출 59개, 원본 레코드 번호와 전후 예측.',
+ '- `lineage_and_runtime_audit.json`, `macro_file_checks.json`: 경제지표 계보 및 실행 검증.',
+ '- `date_dependency_audit.json`, `disbursement_date_changes.csv`: 날짜 수정과 학습 시점 영향.',
+ '- `snapshot_field_summary.csv`, `date_linked_feature_summary.csv`, `relaxed_identity_summary.csv`: 각 단계의 후보 집계. 충돌 제거 전 결과이므로 최종 집계와 구분.',
+ '- `dictionary_evidence.json`: 첨부 데이터 사전의 정확한 셀과 정의. 초기 금리와 지원 일자리의 정의도 확인했으며, 정의만으로 이후 정정이 없었다고 단정하지 않았다.',
+ '- 원본 및 모델의 해시는 `source_hashes.json` 및 `lineage_and_runtime_audit.json`에 남겼다. 개인정보가 포함될 수 있는 주소 원문은 보고서에 쓰지 않았다.']
+(OUT/'README.md').write_text('\n'.join(lines)+'\n')
+def sha(path):
+    h=hashlib.sha256()
+    with open(path,'rb') as f:
+        for b in iter(lambda:f.read(1024*1024),b''):h.update(b)
+    return h.hexdigest()
+paths=['data/raw/Archive.zip','data/raw/7a_504_foia_data_dictionary.xlsx','data/external/sba_new/FOIA_7a_FY2010_FY2019_asof_260930.csv','data/external/sba_new/FOIA_7a_FY2020_Present_asof_260930.csv','data/processed/hour_short_development.pkl','data/processed/hour_medium_holdout.pkl','models/origination_v2_2024.joblib','src/features.py','src/origination_model.py','scripts/paper_methods.py','reports/hour/macro_lineage.csv']
+save('source_hashes.json',{s:sha(ROOT/s) for s in paths})
+assert len(inventory)==21 and sum(bool(r['changed_rows']) for r in inventory)==8
+assert e['any_model_feature_changed']==59 and e['union_pair_count']==478504
+print(json.dumps({'report':str(OUT/'README.md'),'features':len(inventory),'observed_mutable_inputs':8,'changed_loans':59,'new_model_trained':False}))

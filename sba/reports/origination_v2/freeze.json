@@ -1,0 +1,49 @@
+{
+  "created_utc": "2026-11-20T23:35:46.544483+00:00",
+  "plan_sha256": "5753dffa7e79df512757a1e0a66066173be02300466f33c93c01c99dd0a69402",
+  "code_sha256": {
+    "src/origination_model.py": "29970879b3ee9de1e9096bc9036d85ebb280ccaedafc1f83676da36422d8d32c",
+    "scripts/origination_experiment.py": "c55c3df02b2bdb736635b883e8c72c484fb598e4c0555973babf44c6d4794faf"
+  },
+  "source_sha256": {
+    "data/processed/hour_short_development.pkl": "0bab606a04515edcc699e002966a1bd294aa5cbf57d8d56ee01b35a902b9fa9e",
+    "data/processed/hour_medium_holdout.pkl": "7109db2244e0ac258a8274599a8d05351889439690bb071dee2ba4724a60c28c",
+    "reports/hour/macro_lineage.csv": "156197512603652d6913e93adb7ebfdb5c69ad2f18195ca7e34f852d9073c4a3"
+  },
+  "configs": {
+    "direct_base": {
+      "macro": false,
+      "recent": false,
+      "amount_method": "hurdle"
+    },
+    "direct_macro": {
+      "macro": true,
+      "recent": false,
+      "amount_method": "hurdle"
+    },
+    "recent_macro": {
+      "macro": true,
+      "recent": true,
+      "amount_method": "hurdle"
+    },
+    "recent_poisson": {
+      "macro": true,
+      "recent": true,
+      "amount_method": "poisson"
+    }
+  },
+  "selection_years": [
+    2018,
+    2019,
+    2020
+  ],
+  "assessment_year": 2024,
+  "all_historical_outcomes_previously_examined": true,
+  "prospective_independent_test": false,
+  "preserved_original_models": {
+    "models/paper_2019.joblib": "78c72273bdc30cd67669b32af40c9dab0017754df48ed21f52dfcdcd5f3f933a",
+    "models/paper_2018.joblib": "60d6e9997cc673658dba84f8f15d5c8bb7f0d5e66cd69728299548e805730189",
+    "models/paper_2020.joblib": "7b0d8481525e6b706cb6dbb0c3ea05dc112590fd34f2e6c7736f966b9275e758",
+    "models/paper_2024.joblib": "d5ea3e94571275bb7f656ebbb5e5e28aa21ac1779621b068e94de9918653903d"
+  }
+}

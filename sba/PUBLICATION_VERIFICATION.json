@@ -1,0 +1,20 @@
+{
+  "publication_date": "2026-11-21",
+  "public_fixture_tests": {
+    "run": 7,
+    "passed": 7,
+    "fixtures": 4,
+    "source": "tests/test_public_release.py"
+  },
+  "existing_origination_regression_tests": {
+    "run": 6,
+    "passed": 6,
+    "environment": "original local research checkout with source data"
+  },
+  "original_model_unchanged": true,
+  "retrained_after_audit": false,
+  "full_cohort_reproduction_in_saved_audit": 8632,
+  "full_cohort_reproduction_rerun_for_publication": false,
+  "public_inference_requires_borrower_data": false,
+  "raw_or_derived_borrower_datasets_bundled": false
+}

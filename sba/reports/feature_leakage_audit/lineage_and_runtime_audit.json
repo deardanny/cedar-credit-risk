@@ -1,0 +1,356 @@
+{
+  "actual_model_columns": {
+    "probability": [
+      "log_amount",
+      "guarantee_share",
+      "initial_rate",
+      "log_jobs",
+      "log_amount_per_job",
+      "log_unguaranteed_amount",
+      "us_unemployment",
+      "us_unemployment_change",
+      "fed_funds",
+      "prime_rate",
+      "inflation_yoy",
+      "industrial_growth_yoy",
+      "yield_curve",
+      "state_unemployment",
+      "state_unemployment_change",
+      "state_unemployment_gap",
+      "rate_over_prime",
+      "industry",
+      "state",
+      "business_age",
+      "business_type"
+    ],
+    "severity": [
+      "log_amount",
+      "guarantee_share",
+      "initial_rate",
+      "log_jobs",
+      "log_amount_per_job",
+      "log_unguaranteed_amount",
+      "us_unemployment",
+      "us_unemployment_change",
+      "fed_funds",
+      "prime_rate",
+      "inflation_yoy",
+      "industrial_growth_yoy",
+      "yield_curve",
+      "state_unemployment",
+      "state_unemployment_change",
+      "state_unemployment_gap",
+      "rate_over_prime",
+      "industry",
+      "state",
+      "business_age",
+      "business_type"
+    ]
+  },
+  "direct_outcome_columns_used": false,
+  "macro": {
+    "files_verified": 320,
+    "vintages": 64,
+    "series_per_vintage": [
+      58
+    ],
+    "lineage_rows_rebuilt": 3712,
+    "mismatches": {
+      "quarter": 0,
+      "series": 0,
+      "value": 0,
+      "year_change": 0,
+      "year_growth": 0,
+      "observation_date": 0,
+      "age_days": 0
+    },
+    "source_sha256_verified": true,
+    "vintage_url_and_header_verified": true,
+    "all_observation_dates_before_vintage": true,
+    "intraday_availability": "Dates are available; exact decision and publication times within a day are not.",
+    "loan_rows_checked": 494386,
+    "vintage_after_approval_count": 0,
+    "same_day_approval_and_vintage_rows": 3776,
+    "independent_feature_join_mismatches": {
+      "us_unemployment": 0,
+      "us_unemployment_change": 0,
+      "fed_funds": 0,
+      "prime_rate": 0,
+      "inflation_yoy": 0,
+      "industrial_growth_yoy": 0,
+      "yield_curve": 0,
+      "state_unemployment": 0,
+      "state_unemployment_change": 0,
+      "state_unemployment_gap": 0,
+      "rate_over_prime": 0
+    }
+  },
+  "negative_controls": {
+    "poisoned_outcomes_and_precomputed_macro": {
+      "rows": 480,
+      "max_probability_change": 0.0,
+      "max_amount_change": 0.0
+    },
+    "only_explicit_inputs": {
+      "rows": 480,
+      "max_probability_change": 0.0,
+      "max_amount_change": 0.0
+    }
+  },
+  "future_macro_controls": [
+    {
+      "year": 2009,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2009,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2010,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2010,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2011,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2011,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2012,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2012,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2013,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2013,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2014,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2014,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2015,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2015,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2016,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2016,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2017,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2017,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2018,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2018,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2019,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2019,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2020,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2020,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2021,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2021,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2022,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2022,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2023,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2023,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2024,
+      "test": "poison_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    },
+    {
+      "year": 2024,
+      "test": "remove_future",
+      "rows": 30,
+      "probability_and_amount_unchanged": true
+    }
+  ],
+  "time_split_and_borrower_controls": [
+    {
+      "year": 2018,
+      "fit": 162586,
+      "calibration": 14770,
+      "test": 6619,
+      "latest_training_outcome_end": "2018-06-30 00:00:00",
+      "fit_cal_borrower_overlap": 0,
+      "fit_test_borrower_overlap": 0,
+      "cal_test_borrower_overlap": 0,
+      "target_reporting_asof_proven": false
+    },
+    {
+      "year": 2019,
+      "fit": 193580,
+      "calibration": 15352,
+      "test": 5749,
+      "latest_training_outcome_end": "2019-06-30 00:00:00",
+      "fit_cal_borrower_overlap": 0,
+      "fit_test_borrower_overlap": 0,
+      "cal_test_borrower_overlap": 0,
+      "target_reporting_asof_proven": false
+    },
+    {
+      "year": 2020,
+      "fit": 225594,
+      "calibration": 15838,
+      "test": 7218,
+      "latest_training_outcome_end": "2020-06-30 00:00:00",
+      "fit_cal_borrower_overlap": 0,
+      "fit_test_borrower_overlap": 0,
+      "cal_test_borrower_overlap": 0,
+      "target_reporting_asof_proven": false
+    },
+    {
+      "year": 2024,
+      "fit": 329706,
+      "calibration": 13282,
+      "test": 8632,
+      "latest_training_outcome_end": "2024-06-30 00:00:00",
+      "fit_cal_borrower_overlap": 0,
+      "fit_test_borrower_overlap": 0,
+      "cal_test_borrower_overlap": 0,
+      "target_reporting_asof_proven": false
+    }
+  ],
+  "all_final_predictions_reproduced": 8632,
+  "frozen_files_unchanged": {
+    "models/origination_v2_2024.joblib": "76ca2f6c6910a6cd2d32cb36a12c90af03f368f3b336519fd8a0f074c70f1edc",
+    "src/origination_model.py": "29970879b3ee9de1e9096bc9036d85ebb280ccaedafc1f83676da36422d8d32c",
+    "scripts/origination_experiment.py": "c55c3df02b2bdb736635b883e8c72c484fb598e4c0555973babf44c6d4794faf",
+    "scripts/paper_methods.py": "c0a40d1e1cfa0adf2b96072c59703bbaab679f2f2e918676f3a9603cb8fbd613",
+    "reports/hour/macro_lineage.csv": "156197512603652d6913e93adb7ebfdb5c69ad2f18195ca7e34f852d9073c4a3"
+  },
+  "limits": [
+    "Two 2026 loan snapshots do not establish original approval-time values.",
+    "Training targets can have delayed reporting or later revisions even when the event date is before cutoff.",
+    "Borrower grouping uses normalized name/address, not immutable legal entity ID.",
+    "The evaluation data have been examined in prior development; this is not an untouched prospective test.",
+    "Cedar inputs use a selected historical origin date (2024-07-01 by default), not live 2026 economic conditions.",
+    "Approval-date final amount/rate/guarantee are conditional loan terms; they must be known proposed terms for preapproval use."
+  ]
+}

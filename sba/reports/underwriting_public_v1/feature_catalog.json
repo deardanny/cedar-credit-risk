@@ -1,0 +1,74 @@
+{
+  "loan_fields": {
+    "entity": "applicant loan, public snapshot",
+    "fields": [
+      "term_months",
+      "rate_type",
+      "collateral_reported",
+      "business_age_detail",
+      "naics6"
+    ],
+    "join": [
+      "source_file",
+      "source_row",
+      "verified borrower hash",
+      "approval date",
+      "approved amount"
+    ],
+    "warning": "Reported collateral flag is not collateral valuation or recovery value; approval-time revision history unverified"
+  },
+  "lender_context": {
+    "entity": "lending bank, not applicant",
+    "fields": {
+      "bank_equity_assets": "ratio; 0.1 means 10%",
+      "bank_loans_deposits": "ratio; can exceed 1",
+      "bank_roa_percent": "annualized percent; 1 means 1%",
+      "bank_log_assets_thousands_usd": "log1p(assets in thousand USD)"
+    },
+    "join": [
+      "fdic_cert",
+      "latest assumed_available_date <= app"
+    ],
+    "assumed_publication_lag_days": 90,
+    "maximum_extra_age_days": 185
+  },
+  "business_dynamics": {
+    "entity": "state and 2-digit sector",
+    "prefix": "bds_",
+    "join": [
+      "state_fips",
+      "sector",
+      "context_year = approval year - 2"
+    ],
+    "rates": "original percentage units, not decimal probabilities",
+    "warning": "Establishment exits are not borrower default events"
+  },
+  "employment_wages": {
+    "entity": "county and 2-digit sector, private ownership",
+    "prefix": "qcew_",
+    "join": [
+      "county_fips",
+      "sector",
+      "context_year = approval year - 2"
+    ],
+    "level_units": "annual average establishment/employment counts and USD wages",
+    "growth_units": "percentage change",
+    "suppression": "N disclosure flags produce null, never a zero"
+  },
+  "borrower_financials_and_net_loss": {
+    "entity": "applicant/loan",
+    "status": "not obtained",
+    "columns": [
+      "borrower_revenue",
+      "borrower_operating_cash_flow",
+      "borrower_existing_debt",
+      "borrower_monthly_debt_service",
+      "loan_balance_at_default",
+      "net_recovery_cash_flow"
+    ],
+    "substitution_allowed": false
+  },
+  "historical_vintage_verified": false,
+  "approved_for_training": false,
+  "approved_for_lending": false
+}

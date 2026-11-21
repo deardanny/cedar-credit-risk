@@ -1,0 +1,14 @@
+{
+  "date_independent_project_matches": 468004,
+  "approval_date_changed": 0,
+  "disbursement_date_changed": 827,
+  "changed_by_role": {
+    "other_project": 410,
+    "fit": 334,
+    "calibration": 67,
+    "assessment": 16
+  },
+  "24m_label_flips_from_disbursement_only_holding_sept_chargeoff_fixed": 0,
+  "completed_before_final_training_cutoff_membership_flips": 21,
+  "limits": "Not an original-date guarantee; unchanged labels in this interval do not validate past reporting availability."
+}

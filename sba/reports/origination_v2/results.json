@@ -1,0 +1,1484 @@
+{
+  "created_utc": "2026-11-20T23:36:09.495246+00:00",
+  "freeze": {
+    "created_utc": "2026-11-20T23:35:46.544483+00:00",
+    "plan_sha256": "5753dffa7e79df512757a1e0a66066173be02300466f33c93c01c99dd0a69402",
+    "code_sha256": {
+      "src/origination_model.py": "29970879b3ee9de1e9096bc9036d85ebb280ccaedafc1f83676da36422d8d32c",
+      "scripts/origination_experiment.py": "c55c3df02b2bdb736635b883e8c72c484fb598e4c0555973babf44c6d4794faf"
+    },
+    "source_sha256": {
+      "data/processed/hour_short_development.pkl": "0bab606a04515edcc699e002966a1bd294aa5cbf57d8d56ee01b35a902b9fa9e",
+      "data/processed/hour_medium_holdout.pkl": "7109db2244e0ac258a8274599a8d05351889439690bb071dee2ba4724a60c28c",
+      "reports/hour/macro_lineage.csv": "156197512603652d6913e93adb7ebfdb5c69ad2f18195ca7e34f852d9073c4a3"
+    },
+    "configs": {
+      "direct_base": {
+        "macro": false,
+        "recent": false,
+        "amount_method": "hurdle"
+      },
+      "direct_macro": {
+        "macro": true,
+        "recent": false,
+        "amount_method": "hurdle"
+      },
+      "recent_macro": {
+        "macro": true,
+        "recent": true,
+        "amount_method": "hurdle"
+      },
+      "recent_poisson": {
+        "macro": true,
+        "recent": true,
+        "amount_method": "poisson"
+      }
+    },
+    "selection_years": [
+      2018,
+      2019,
+      2020
+    ],
+    "assessment_year": 2024,
+    "all_historical_outcomes_previously_examined": true,
+    "prospective_independent_test": false,
+    "preserved_original_models": {
+      "models/paper_2019.joblib": "78c72273bdc30cd67669b32af40c9dab0017754df48ed21f52dfcdcd5f3f933a",
+      "models/paper_2018.joblib": "60d6e9997cc673658dba84f8f15d5c8bb7f0d5e66cd69728299548e805730189",
+      "models/paper_2020.joblib": "7b0d8481525e6b706cb6dbb0c3ea05dc112590fd34f2e6c7736f966b9275e758",
+      "models/paper_2024.joblib": "d5ea3e94571275bb7f656ebbb5e5e28aa21ac1779621b068e94de9918653903d"
+    }
+  },
+  "selection": {
+    "selected": "recent_poisson",
+    "selection_scores": {
+      "direct_base": -0.08276735278609246,
+      "direct_macro": -0.08195687888735928,
+      "recent_macro": -0.061306255843974124,
+      "recent_poisson": -0.15922707988304782
+    },
+    "rule": "Minimum mean log Tweedie-deviance ratio vs matched old model across 2018/2019/2020, all at 24 months",
+    "selected_utc": "2026-11-20T23:36:04.591014+00:00",
+    "rows": [
+      {
+        "year": 2018,
+        "config": "direct_base",
+        "baseline": {
+          "probability": {
+            "n": 6619,
+            "events": 44,
+            "observed_rate": 0.006647529838344161,
+            "predicted_rate": 0.009656884112856855,
+            "brier": 0.006588537083477065,
+            "log_loss": 0.03796384446943265,
+            "roc_auc": 0.7465917732457655,
+            "pr_auc": 0.017267290677791394,
+            "ks": 0.4484272381610785,
+            "top_decile_lift": 3.408575940675638,
+            "calibration_intercept": -0.20798628669227934,
+            "calibration_slope": 1.038890435808752
+          },
+          "amount": {
+            "n": 6619,
+            "actual_total": 6854691.05,
+            "predicted_total": 8167762.173053205,
+            "predicted_actual_ratio": 1.1915580313504,
+            "actual_mean": 1035.6082565342197,
+            "predicted_mean": 1233.9873354061347,
+            "mae_dollars": 2249.8177170985578,
+            "rmse_dollars": 16245.205174834513,
+            "tweedie_deviance": 7.0905026144061,
+            "top_decile_amount_capture": 0.12078809737165326
+          },
+          "expected_events": 63.91891594299952,
+          "observed_events": 44,
+          "predicted_amount_per_expected_event": 127783.17736703964,
+          "observed_amount_per_event": 155788.43295454545
+        },
+        "probability": {
+          "n": 6619,
+          "events": 44,
+          "observed_rate": 0.006647529838344161,
+          "predicted_rate": 0.0057288708304017565,
+          "brier": 0.006565154925197498,
+          "log_loss": 0.03725200876058883,
+          "roc_auc": 0.752903560318009,
+          "pr_auc": 0.019758825466715604,
+          "ks": 0.3814344970618735,
+          "top_decile_lift": 3.635814336720681,
+          "calibration_intercept": -0.16049687151820366,
+          "calibration_slope": 0.9313149201293441
+        },
+        "amount": {
+          "n": 6619,
+          "actual_total": 6854691.05,
+          "predicted_total": 4823208.129556784,
+          "predicted_actual_ratio": 0.703636107648759,
+          "actual_mean": 1035.6082565342197,
+          "predicted_mean": 728.6913626766558,
+          "mae_dollars": 1747.6141239955239,
+          "rmse_dollars": 16210.818111109784,
+          "tweedie_deviance": 6.849237576158192,
+          "top_decile_amount_capture": 0.36419877450202515
+        },
+        "expected_events": 37.919396026429226,
+        "observed_events": 44,
+        "predicted_amount_per_expected_event": 127196.33314294046,
+        "observed_amount_per_event": 155788.43295454545
+      },
+      {
+        "year": 2018,
+        "config": "direct_macro",
+        "baseline": {
+          "probability": {
+            "n": 6619,
+            "events": 44,
+            "observed_rate": 0.006647529838344161,
+            "predicted_rate": 0.009656884112856855,
+            "brier": 0.006588537083477065,
+            "log_loss": 0.03796384446943265,
+            "roc_auc": 0.7465917732457655,
+            "pr_auc": 0.017267290677791394,
+            "ks": 0.4484272381610785,
+            "top_decile_lift": 3.408575940675638,
+            "calibration_intercept": -0.20798628669227934,
+            "calibration_slope": 1.038890435808752
+          },
+          "amount": {
+            "n": 6619,
+            "actual_total": 6854691.05,
+            "predicted_total": 8167762.173053205,
+            "predicted_actual_ratio": 1.1915580313504,
+            "actual_mean": 1035.6082565342197,
+            "predicted_mean": 1233.9873354061347,
+            "mae_dollars": 2249.8177170985578,
+            "rmse_dollars": 16245.205174834513,
+            "tweedie_deviance": 7.0905026144061,
+            "top_decile_amount_capture": 0.12078809737165326
+          },
+          "expected_events": 63.91891594299952,
+          "observed_events": 44,
+          "predicted_amount_per_expected_event": 127783.17736703964,
+          "observed_amount_per_event": 155788.43295454545
+        },
+        "probability": {
+          "n": 6619,
+          "events": 44,
+          "observed_rate": 0.006647529838344161,
+          "predicted_rate": 0.0038029571111013348,
+          "brier": 0.006567269252833644,
+          "log_loss": 0.038046114374657505,
+          "roc_auc": 0.7524835810577255,
+          "pr_auc": 0.026541663515531787,
+          "ks": 0.424483235395783,
+          "top_decile_lift": 3.1813375446305963,
+          "calibration_intercept": -0.13404893732252576,
+          "calibration_slope": 0.859103645083087
+        },
+        "amount": {
+          "n": 6619,
+          "actual_total": 6854691.05,
+          "predicted_total": 2863376.427517537,
+          "predicted_actual_ratio": 0.417725088794124,
+          "actual_mean": 1035.6082565342197,
+          "predicted_mean": 432.59955091668485,
+          "mae_dollars": 1456.3237963753393,
+          "rmse_dollars": 16224.110783319777,
+          "tweedie_deviance": 7.491628227449368,
+          "top_decile_amount_capture": 0.28171162579238346
+        },
+        "expected_events": 25.171773118379736,
+        "observed_events": 44,
+        "predicted_amount_per_expected_event": 113753.46560019557,
+        "observed_amount_per_event": 155788.43295454545
+      },
+      {
+        "year": 2018,
+        "config": "recent_macro",
+        "baseline": {
+          "probability": {
+            "n": 6619,
+            "events": 44,
+            "observed_rate": 0.006647529838344161,
+            "predicted_rate": 0.009656884112856855,
+            "brier": 0.006588537083477065,
+            "log_loss": 0.03796384446943265,
+            "roc_auc": 0.7465917732457655,
+            "pr_auc": 0.017267290677791394,
+            "ks": 0.4484272381610785,
+            "top_decile_lift": 3.408575940675638,
+            "calibration_intercept": -0.20798628669227934,
+            "calibration_slope": 1.038890435808752
+          },
+          "amount": {
+            "n": 6619,
+            "actual_total": 6854691.05,
+            "predicted_total": 8167762.173053205,
+            "predicted_actual_ratio": 1.1915580313504,
+            "actual_mean": 1035.6082565342197,
+            "predicted_mean": 1233.9873354061347,
+            "mae_dollars": 2249.8177170985578,
+            "rmse_dollars": 16245.205174834513,
+            "tweedie_deviance": 7.0905026144061,
+            "top_decile_amount_capture": 0.12078809737165326
+          },
+          "expected_events": 63.91891594299952,
+          "observed_events": 44,
+          "predicted_amount_per_expected_event": 127783.17736703964,
+          "observed_amount_per_event": 155788.43295454545
+        },
+        "probability": {
+          "n": 6619,
+          "events": 44,
+          "observed_rate": 0.006647529838344161,
+          "predicted_rate": 0.004535873384858219,
+          "brier": 0.006556661857843734,
+          "log_loss": 0.03741033924554375,
+          "roc_auc": 0.7618942274455582,
+          "pr_auc": 0.032859341494098165,
+          "ks": 0.4485585896992741,
+          "top_decile_lift": 3.863052732765724,
+          "calibration_intercept": -0.1433567604603513,
+          "calibration_slope": 0.8863133899738468
+        },
+        "amount": {
+          "n": 6619,
+          "actual_total": 6854691.05,
+          "predicted_total": 3653067.306501304,
+          "predicted_actual_ratio": 0.5329295339286376,
+          "actual_mean": 1035.6082565342197,
+          "predicted_mean": 551.9062254874307,
+          "mae_dollars": 1571.9082417523516,
+          "rmse_dollars": 16215.28841065087,
+          "tweedie_deviance": 7.142455331449025,
+          "top_decile_amount_capture": 0.35095115191223675
+        },
+        "expected_events": 30.02294593437655,
+        "observed_events": 44,
+        "predicted_amount_per_expected_event": 121675.84468513158,
+        "observed_amount_per_event": 155788.43295454545
+      },
+      {
+        "year": 2018,
+        "config": "recent_poisson",
+        "baseline": {
+          "probability": {
+            "n": 6619,
+            "events": 44,
+            "observed_rate": 0.006647529838344161,
+            "predicted_rate": 0.009656884112856855,
+            "brier": 0.006588537083477065,
+            "log_loss": 0.03796384446943265,
+            "roc_auc": 0.7465917732457655,
+            "pr_auc": 0.017267290677791394,
+            "ks": 0.4484272381610785,
+            "top_decile_lift": 3.408575940675638,
+            "calibration_intercept": -0.20798628669227934,
+            "calibration_slope": 1.038890435808752
+          },
+          "amount": {
+            "n": 6619,
+            "actual_total": 6854691.05,
+            "predicted_total": 8167762.173053205,
+            "predicted_actual_ratio": 1.1915580313504,
+            "actual_mean": 1035.6082565342197,
+            "predicted_mean": 1233.9873354061347,
+            "mae_dollars": 2249.8177170985578,
+            "rmse_dollars": 16245.205174834513,
+            "tweedie_deviance": 7.0905026144061,
+            "top_decile_amount_capture": 0.12078809737165326
+          },
+          "expected_events": 63.91891594299952,
+          "observed_events": 44,
+          "predicted_amount_per_expected_event": 127783.17736703964,
+          "observed_amount_per_event": 155788.43295454545
+        },
+        "probability": {
+          "n": 6619,
+          "events": 44,
+          "observed_rate": 0.006647529838344161,
+          "predicted_rate": 0.004535873384858219,
+          "brier": 0.006556661857843734,
+          "log_loss": 0.03741033924554375,
+          "roc_auc": 0.7618942274455582,
+          "pr_auc": 0.032859341494098165,
+          "ks": 0.4485585896992741,
+          "top_decile_lift": 3.863052732765724,
+          "calibration_intercept": -0.1433567604603513,
+          "calibration_slope": 0.8863133899738468
+        },
+        "amount": {
+          "n": 6619,
+          "actual_total": 6854691.05,
+          "predicted_total": 3396654.00185108,
+          "predicted_actual_ratio": 0.49552255193924166,
+          "actual_mean": 1035.6082565342197,
+          "predicted_mean": 513.1672460871854,
+          "mae_dollars": 1536.889902427187,
+          "rmse_dollars": 16225.093250082777,
+          "tweedie_deviance": 7.143495348108441,
+          "top_decile_amount_capture": 0.33174854321114877
+        },
+        "expected_events": 30.02294593437655,
+        "observed_events": 44,
+        "predicted_amount_per_expected_event": 113135.26691469272,
+        "observed_amount_per_event": 155788.43295454545
+      },
+      {
+        "year": 2019,
+        "config": "direct_base",
+        "baseline": {
+          "probability": {
+            "n": 5749,
+            "events": 18,
+            "observed_rate": 0.0031309793007479564,
+            "predicted_rate": 0.008189004999577764,
+            "brier": 0.0031480419287323287,
+            "log_loss": 0.02194052742041776,
+            "roc_auc": 0.7484586750421682,
+            "pr_auc": 0.015803207874180564,
+            "ks": 0.42526997421431195,
+            "top_decile_lift": 2.7772946859903382,
+            "calibration_intercept": -0.23033052724480235,
+            "calibration_slope": 1.1681172732002851
+          },
+          "amount": {
+            "n": 5749,
+            "actual_total": 2768697.02,
+            "predicted_total": 8566540.555625666,
+            "predicted_actual_ratio": 3.094069337939211,
+            "actual_mean": 481.5962810923639,
+            "predicted_mean": 1490.0922865934365,
+            "mae_dollars": 1962.6393248306879,
+            "rmse_dollars": 10576.945584840105,
+            "tweedie_deviance": 5.818677287251949,
+            "top_decile_amount_capture": 0.14759517818240728
+          },
+          "expected_events": 47.07858974257257,
+          "observed_events": 18,
+          "predicted_amount_per_expected_event": 181962.5567050292,
+          "observed_amount_per_event": 153816.5011111111
+        },
+        "probability": {
+          "n": 5749,
+          "events": 18,
+          "observed_rate": 0.0031309793007479564,
+          "predicted_rate": 0.008909248391261025,
+          "brier": 0.003219488487301845,
+          "log_loss": 0.022987058587391782,
+          "roc_auc": 0.7030525989259194,
+          "pr_auc": 0.012994476920721068,
+          "ks": 0.37972818395083263,
+          "top_decile_lift": 2.2218357487922704,
+          "calibration_intercept": -2.503603261092217,
+          "calibration_slope": 0.6632350476795786
+        },
+        "amount": {
+          "n": 5749,
+          "actual_total": 2768697.02,
+          "predicted_total": 6456245.767863618,
+          "predicted_actual_ratio": 2.3318715342365697,
+          "actual_mean": 481.5962810923639,
+          "predicted_mean": 1123.0206588734768,
+          "mae_dollars": 1594.1010533226374,
+          "rmse_dollars": 10514.578254566448,
+          "tweedie_deviance": 5.370775376858919,
+          "top_decile_amount_capture": 0.26143764188397906
+        },
+        "expected_events": 51.219269001359635,
+        "observed_events": 18,
+        "predicted_amount_per_expected_event": 126051.111110005,
+        "observed_amount_per_event": 153816.5011111111
+      },
+      {
+        "year": 2019,
+        "config": "direct_macro",
+        "baseline": {
+          "probability": {
+            "n": 5749,
+            "events": 18,
+            "observed_rate": 0.0031309793007479564,
+            "predicted_rate": 0.008189004999577764,
+            "brier": 0.0031480419287323287,
+            "log_loss": 0.02194052742041776,
+            "roc_auc": 0.7484586750421682,
+            "pr_auc": 0.015803207874180564,
+            "ks": 0.42526997421431195,
+            "top_decile_lift": 2.7772946859903382,
+            "calibration_intercept": -0.23033052724480235,
+            "calibration_slope": 1.1681172732002851
+          },
+          "amount": {
+            "n": 5749,
+            "actual_total": 2768697.02,
+            "predicted_total": 8566540.555625666,
+            "predicted_actual_ratio": 3.094069337939211,
+            "actual_mean": 481.5962810923639,
+            "predicted_mean": 1490.0922865934365,
+            "mae_dollars": 1962.6393248306879,
+            "rmse_dollars": 10576.945584840105,
+            "tweedie_deviance": 5.818677287251949,
+            "top_decile_amount_capture": 0.14759517818240728
+          },
+          "expected_events": 47.07858974257257,
+          "observed_events": 18,
+          "predicted_amount_per_expected_event": 181962.5567050292,
+          "observed_amount_per_event": 153816.5011111111
+        },
+        "probability": {
+          "n": 5749,
+          "events": 18,
+          "observed_rate": 0.0031309793007479564,
+          "predicted_rate": 0.005795101003635717,
+          "brier": 0.0031612712695174086,
+          "log_loss": 0.02092771245052347,
+          "roc_auc": 0.742259446674034,
+          "pr_auc": 0.012831635330485628,
+          "ks": 0.3925337831287927,
+          "top_decile_lift": 3.332753623188406,
+          "calibration_intercept": -2.0954319083973187,
+          "calibration_slope": 0.680136552408366
+        },
+        "amount": {
+          "n": 5749,
+          "actual_total": 2768697.02,
+          "predicted_total": 3767348.431861908,
+          "predicted_actual_ratio": 1.360693642044628,
+          "actual_mean": 481.5962810923639,
+          "predicted_mean": 655.304997714717,
+          "mae_dollars": 1128.1085997106452,
+          "rmse_dollars": 10470.61234658632,
+          "tweedie_deviance": 4.864571104777323,
+          "top_decile_amount_capture": 0.197528576095336
+        },
+        "expected_events": 33.31603566990174,
+        "observed_events": 18,
+        "predicted_amount_per_expected_event": 113079.13309942196,
+        "observed_amount_per_event": 153816.5011111111
+      },
+      {
+        "year": 2019,
+        "config": "recent_macro",
+        "baseline": {
+          "probability": {
+            "n": 5749,
+            "events": 18,
+            "observed_rate": 0.0031309793007479564,
+            "predicted_rate": 0.008189004999577764,
+            "brier": 0.0031480419287323287,
+            "log_loss": 0.02194052742041776,
+            "roc_auc": 0.7484586750421682,
+            "pr_auc": 0.015803207874180564,
+            "ks": 0.42526997421431195,
+            "top_decile_lift": 2.7772946859903382,
+            "calibration_intercept": -0.23033052724480235,
+            "calibration_slope": 1.1681172732002851
+          },
+          "amount": {
+            "n": 5749,
+            "actual_total": 2768697.02,
+            "predicted_total": 8566540.555625666,
+            "predicted_actual_ratio": 3.094069337939211,
+            "actual_mean": 481.5962810923639,
+            "predicted_mean": 1490.0922865934365,
+            "mae_dollars": 1962.6393248306879,
+            "rmse_dollars": 10576.945584840105,
+            "tweedie_deviance": 5.818677287251949,
+            "top_decile_amount_capture": 0.14759517818240728
+          },
+          "expected_events": 47.07858974257257,
+          "observed_events": 18,
+          "predicted_amount_per_expected_event": 181962.5567050292,
+          "observed_amount_per_event": 153816.5011111111
+        },
+        "probability": {
+          "n": 5749,
+          "events": 18,
+          "observed_rate": 0.0031309793007479564,
+          "predicted_rate": 0.00610983586627813,
+          "brier": 0.0031620420526318584,
+          "log_loss": 0.021193328836380764,
+          "roc_auc": 0.7224645689137053,
+          "pr_auc": 0.010625626988923812,
+          "ks": 0.3625700381938386,
+          "top_decile_lift": 2.2218357487922704,
+          "calibration_intercept": -2.031537190331578,
+          "calibration_slope": 0.7073767172537586
+        },
+        "amount": {
+          "n": 5749,
+          "actual_total": 2768697.02,
+          "predicted_total": 4464873.5503935395,
+          "predicted_actual_ratio": 1.612626270820178,
+          "actual_mean": 481.5962810923639,
+          "predicted_mean": 776.6348148188449,
+          "mae_dollars": 1250.6088575825477,
+          "rmse_dollars": 10489.316249411651,
+          "tweedie_deviance": 5.137047539423785,
+          "top_decile_amount_capture": 0.14759517818240728
+        },
+        "expected_events": 35.12544639523297,
+        "observed_events": 18,
+        "predicted_amount_per_expected_event": 127112.22229476029,
+        "observed_amount_per_event": 153816.5011111111
+      },
+      {
+        "year": 2019,
+        "config": "recent_poisson",
+        "baseline": {
+          "probability": {
+            "n": 5749,
+            "events": 18,
+            "observed_rate": 0.0031309793007479564,
+            "predicted_rate": 0.008189004999577764,
+            "brier": 0.0031480419287323287,
+            "log_loss": 0.02194052742041776,
+            "roc_auc": 0.7484586750421682,
+            "pr_auc": 0.015803207874180564,
+            "ks": 0.42526997421431195,
+            "top_decile_lift": 2.7772946859903382,
+            "calibration_intercept": -0.23033052724480235,
+            "calibration_slope": 1.1681172732002851
+          },
+          "amount": {
+            "n": 5749,
+            "actual_total": 2768697.02,
+            "predicted_total": 8566540.555625666,
+            "predicted_actual_ratio": 3.094069337939211,
+            "actual_mean": 481.5962810923639,
+            "predicted_mean": 1490.0922865934365,
+            "mae_dollars": 1962.6393248306879,
+            "rmse_dollars": 10576.945584840105,
+            "tweedie_deviance": 5.818677287251949,
+            "top_decile_amount_capture": 0.14759517818240728
+          },
+          "expected_events": 47.07858974257257,
+          "observed_events": 18,
+          "predicted_amount_per_expected_event": 181962.5567050292,
+          "observed_amount_per_event": 153816.5011111111
+        },
+        "probability": {
+          "n": 5749,
+          "events": 18,
+          "observed_rate": 0.0031309793007479564,
+          "predicted_rate": 0.00610983586627813,
+          "brier": 0.0031620420526318584,
+          "log_loss": 0.021193328836380764,
+          "roc_auc": 0.7224645689137053,
+          "pr_auc": 0.010625626988923812,
+          "ks": 0.3625700381938386,
+          "top_decile_lift": 2.2218357487922704,
+          "calibration_intercept": -2.031537190331578,
+          "calibration_slope": 0.7073767172537586
+        },
+        "amount": {
+          "n": 5749,
+          "actual_total": 2768697.02,
+          "predicted_total": 4437563.663335888,
+          "predicted_actual_ratio": 1.6027624659833266,
+          "actual_mean": 481.5962810923639,
+          "predicted_mean": 771.8844430919964,
+          "mae_dollars": 1244.3464856435496,
+          "rmse_dollars": 10480.344640019288,
+          "tweedie_deviance": 4.45678511533794,
+          "top_decile_amount_capture": 0.23386303207708875
+        },
+        "expected_events": 35.12544639523297,
+        "observed_events": 18,
+        "predicted_amount_per_expected_event": 126334.72649441201,
+        "observed_amount_per_event": 153816.5011111111
+      },
+      {
+        "year": 2020,
+        "config": "direct_base",
+        "baseline": {
+          "probability": {
+            "n": 7218,
+            "events": 6,
+            "observed_rate": 0.0008312551953449709,
+            "predicted_rate": 0.003360549950525003,
+            "brier": 0.000835735335746993,
+            "log_loss": 0.007066314030452384,
+            "roc_auc": 0.9494361249768903,
+            "pr_auc": 0.009951559491705082,
+            "ks": 0.8979478646699944,
+            "top_decile_lift": 8.331024930747922,
+            "calibration_intercept": -0.19764583130300462,
+            "calibration_slope": 1.2549192659425052
+          },
+          "amount": {
+            "n": 7218,
+            "actual_total": 411954.86,
+            "predicted_total": 5474154.997833823,
+            "predicted_actual_ratio": 13.288239876169499,
+            "actual_mean": 57.07326960376835,
+            "predicted_mean": 758.4032970121672,
+            "mae_dollars": 814.446128469069,
+            "rmse_dollars": 2604.011120484838,
+            "tweedie_deviance": 3.448815120104618,
+            "top_decile_amount_capture": 0.0
+          },
+          "expected_events": 24.25644954288947,
+          "observed_events": 6,
+          "predicted_amount_per_expected_event": 225678.32889782978,
+          "observed_amount_per_event": 68659.14333333333
+        },
+        "probability": {
+          "n": 7218,
+          "events": 6,
+          "observed_rate": 0.0008312551953449709,
+          "predicted_rate": 0.003754296447072939,
+          "brier": 0.000863462804122445,
+          "log_loss": 0.007467979834966253,
+          "roc_auc": 0.9184923276021446,
+          "pr_auc": 0.006456948181657544,
+          "ks": 0.8638380476982807,
+          "top_decile_lift": 6.664819944598338,
+          "calibration_intercept": -0.2173486191428665,
+          "calibration_slope": 1.2784731179976538
+        },
+        "amount": {
+          "n": 7218,
+          "actual_total": 411954.86,
+          "predicted_total": 4226319.030190119,
+          "predicted_actual_ratio": 10.259179926145595,
+          "actual_mean": 57.07326960376835,
+          "predicted_mean": 585.5249418384758,
+          "mae_dollars": 641.512732850422,
+          "rmse_dollars": 2555.896103254746,
+          "tweedie_deviance": 3.0175590188792887,
+          "top_decile_amount_capture": 0.35380410368262194
+        },
+        "expected_events": 27.098511754972474,
+        "observed_events": 6,
+        "predicted_amount_per_expected_event": 155961.29663521485,
+        "observed_amount_per_event": 68659.14333333333
+      },
+      {
+        "year": 2020,
+        "config": "direct_macro",
+        "baseline": {
+          "probability": {
+            "n": 7218,
+            "events": 6,
+            "observed_rate": 0.0008312551953449709,
+            "predicted_rate": 0.003360549950525003,
+            "brier": 0.000835735335746993,
+            "log_loss": 0.007066314030452384,
+            "roc_auc": 0.9494361249768903,
+            "pr_auc": 0.009951559491705082,
+            "ks": 0.8979478646699944,
+            "top_decile_lift": 8.331024930747922,
+            "calibration_intercept": -0.19764583130300462,
+            "calibration_slope": 1.2549192659425052
+          },
+          "amount": {
+            "n": 7218,
+            "actual_total": 411954.86,
+            "predicted_total": 5474154.997833823,
+            "predicted_actual_ratio": 13.288239876169499,
+            "actual_mean": 57.07326960376835,
+            "predicted_mean": 758.4032970121672,
+            "mae_dollars": 814.446128469069,
+            "rmse_dollars": 2604.011120484838,
+            "tweedie_deviance": 3.448815120104618,
+            "top_decile_amount_capture": 0.0
+          },
+          "expected_events": 24.25644954288947,
+          "observed_events": 6,
+          "predicted_amount_per_expected_event": 225678.32889782978,
+          "observed_amount_per_event": 68659.14333333333
+        },
+        "probability": {
+          "n": 7218,
+          "events": 6,
+          "observed_rate": 0.0008312551953449709,
+          "predicted_rate": 0.003155666520786325,
+          "brier": 0.000840165304165675,
+          "log_loss": 0.007020144911048474,
+          "roc_auc": 0.9123913847291552,
+          "pr_auc": 0.007924459286192183,
+          "ks": 0.8325013865779257,
+          "top_decile_lift": 4.998614958448754,
+          "calibration_intercept": -0.19526166312317153,
+          "calibration_slope": 1.2371350340019123
+        },
+        "amount": {
+          "n": 7218,
+          "actual_total": 411954.86,
+          "predicted_total": 4096693.4211036535,
+          "predicted_actual_ratio": 9.944520186273937,
+          "actual_mean": 57.07326960376835,
+          "predicted_mean": 567.5662816713291,
+          "mae_dollars": 623.6545403833744,
+          "rmse_dollars": 2515.5021716592855,
+          "tweedie_deviance": 3.0533048858480436,
+          "top_decile_amount_capture": 0.24859709143861053
+        },
+        "expected_events": 22.777600947035694,
+        "observed_events": 6,
+        "predicted_amount_per_expected_event": 179856.22939964634,
+        "observed_amount_per_event": 68659.14333333333
+      },
+      {
+        "year": 2020,
+        "config": "recent_macro",
+        "baseline": {
+          "probability": {
+            "n": 7218,
+            "events": 6,
+            "observed_rate": 0.0008312551953449709,
+            "predicted_rate": 0.003360549950525003,
+            "brier": 0.000835735335746993,
+            "log_loss": 0.007066314030452384,
+            "roc_auc": 0.9494361249768903,
+            "pr_auc": 0.009951559491705082,
+            "ks": 0.8979478646699944,
+            "top_decile_lift": 8.331024930747922,
+            "calibration_intercept": -0.19764583130300462,
+            "calibration_slope": 1.2549192659425052
+          },
+          "amount": {
+            "n": 7218,
+            "actual_total": 411954.86,
+            "predicted_total": 5474154.997833823,
+            "predicted_actual_ratio": 13.288239876169499,
+            "actual_mean": 57.07326960376835,
+            "predicted_mean": 758.4032970121672,
+            "mae_dollars": 814.446128469069,
+            "rmse_dollars": 2604.011120484838,
+            "tweedie_deviance": 3.448815120104618,
+            "top_decile_amount_capture": 0.0
+          },
+          "expected_events": 24.25644954288947,
+          "observed_events": 6,
+          "predicted_amount_per_expected_event": 225678.32889782978,
+          "observed_amount_per_event": 68659.14333333333
+        },
+        "probability": {
+          "n": 7218,
+          "events": 6,
+          "observed_rate": 0.0008312551953449709,
+          "predicted_rate": 0.0036241318565369955,
+          "brier": 0.0008420803755791634,
+          "log_loss": 0.007314483663670426,
+          "roc_auc": 0.9236457755592531,
+          "pr_auc": 0.010186053722571854,
+          "ks": 0.7641430948419301,
+          "top_decile_lift": 8.331024930747922,
+          "calibration_intercept": -0.20481758953975737,
+          "calibration_slope": 1.2714436716488615
+        },
+        "amount": {
+          "n": 7218,
+          "actual_total": 411954.86,
+          "predicted_total": 4678434.924539463,
+          "predicted_actual_ratio": 11.356668846046537,
+          "actual_mean": 57.07326960376835,
+          "predicted_mean": 648.1622228511309,
+          "mae_dollars": 704.0990923789711,
+          "rmse_dollars": 2539.9064472702757,
+          "tweedie_deviance": 3.2265261026452627,
+          "top_decile_amount_capture": 0.24859709143861053
+        },
+        "expected_events": 26.158983740484032,
+        "observed_events": 6,
+        "predicted_amount_per_expected_event": 178846.20331404722,
+        "observed_amount_per_event": 68659.14333333333
+      },
+      {
+        "year": 2020,
+        "config": "recent_poisson",
+        "baseline": {
+          "probability": {
+            "n": 7218,
+            "events": 6,
+            "observed_rate": 0.0008312551953449709,
+            "predicted_rate": 0.003360549950525003,
+            "brier": 0.000835735335746993,
+            "log_loss": 0.007066314030452384,
+            "roc_auc": 0.9494361249768903,
+            "pr_auc": 0.009951559491705082,
+            "ks": 0.8979478646699944,
+            "top_decile_lift": 8.331024930747922,
+            "calibration_intercept": -0.19764583130300462,
+            "calibration_slope": 1.2549192659425052
+          },
+          "amount": {
+            "n": 7218,
+            "actual_total": 411954.86,
+            "predicted_total": 5474154.997833823,
+            "predicted_actual_ratio": 13.288239876169499,
+            "actual_mean": 57.07326960376835,
+            "predicted_mean": 758.4032970121672,
+            "mae_dollars": 814.446128469069,
+            "rmse_dollars": 2604.011120484838,
+            "tweedie_deviance": 3.448815120104618,
+            "top_decile_amount_capture": 0.0
+          },
+          "expected_events": 24.25644954288947,
+          "observed_events": 6,
+          "predicted_amount_per_expected_event": 225678.32889782978,
+          "observed_amount_per_event": 68659.14333333333
+        },
+        "probability": {
+          "n": 7218,
+          "events": 6,
+          "observed_rate": 0.0008312551953449709,
+          "predicted_rate": 0.0036241318565369955,
+          "brier": 0.0008420803755791634,
+          "log_loss": 0.007314483663670426,
+          "roc_auc": 0.9236457755592531,
+          "pr_auc": 0.010186053722571854,
+          "ks": 0.7641430948419301,
+          "top_decile_lift": 8.331024930747922,
+          "calibration_intercept": -0.20481758953975737,
+          "calibration_slope": 1.2714436716488615
+        },
+        "amount": {
+          "n": 7218,
+          "actual_total": 411954.86,
+          "predicted_total": 3740429.796108064,
+          "predicted_actual_ratio": 9.079707898355815,
+          "actual_mean": 57.07326960376835,
+          "predicted_mean": 518.2086168063264,
+          "mae_dollars": 573.9278649096075,
+          "rmse_dollars": 2514.8337979404546,
+          "tweedie_deviance": 2.7719437868434906,
+          "top_decile_amount_capture": 0.35380410368262194
+        },
+        "expected_events": 26.158983740484032,
+        "observed_events": 6,
+        "predicted_amount_per_expected_event": 142988.34515957587,
+        "observed_amount_per_event": 68659.14333333333
+      }
+    ],
+    "audits": [
+      {
+        "year": 2018,
+        "fit_loans": 162586,
+        "calibration_loans": 14770,
+        "fit_events": 885,
+        "calibration_events": 55,
+        "last_label_end": "2018-06-30 00:00:00",
+        "fit_cal_borrower_overlap": 0,
+        "test_loans": 6619
+      },
+      {
+        "year": 2019,
+        "fit_loans": 193580,
+        "calibration_loans": 15352,
+        "fit_events": 1118,
+        "calibration_events": 99,
+        "last_label_end": "2019-06-30 00:00:00",
+        "fit_cal_borrower_overlap": 0,
+        "test_loans": 5749
+      },
+      {
+        "year": 2020,
+        "fit_loans": 225594,
+        "calibration_loans": 15838,
+        "fit_events": 1375,
+        "calibration_events": 135,
+        "last_label_end": "2020-06-30 00:00:00",
+        "fit_cal_borrower_overlap": 0,
+        "test_loans": 7218
+      }
+    ]
+  },
+  "model": {
+    "frozen_utc": "2026-11-20T23:36:08.174904+00:00",
+    "model_sha256": "76ca2f6c6910a6cd2d32cb36a12c90af03f368f3b336519fd8a0f074c70f1edc",
+    "selection_sha256": "6fcf24f9c7d34e3466c3adb2861483206a446851e99a58a8a3ae7314433a5f1c",
+    "fit_loans": 329706,
+    "calibration_loans": 13282,
+    "fit_events": 1743,
+    "calibration_events": 36,
+    "calibration_first_disbursement": "2020-07-01 00:00:00",
+    "calibration_last_disbursement": "2022-06-30 00:00:00",
+    "last_label_end": "2024-06-30 00:00:00",
+    "borrower_overlap": 0,
+    "amount_scale": 0.7915048804451088
+  },
+  "assessment": {
+    "year": 2024,
+    "months": 24,
+    "loans": 8632,
+    "events": 45,
+    "baseline": {
+      "probability": {
+        "n": 8632,
+        "events": 45,
+        "observed_rate": 0.005213160333642261,
+        "predicted_rate": 0.012925622324297585,
+        "brier": 0.005262164468460533,
+        "log_loss": 0.03397202307996093,
+        "roc_auc": 0.7091067893327122,
+        "pr_auc": 0.012847050232141635,
+        "ks": 0.3917420389995212,
+        "top_decile_lift": 3.108230452674897,
+        "calibration_intercept": -0.25452681408387945,
+        "calibration_slope": 1.16310869437385
+      },
+      "amount": {
+        "n": 8632,
+        "actual_total": 4012277.1100000003,
+        "predicted_total": 19011138.455309115,
+        "predicted_actual_ratio": 4.738241635386224,
+        "actual_mean": 464.8143083873958,
+        "predicted_mean": 2202.402508724411,
+        "mae_dollars": 2651.8008410300777,
+        "rmse_dollars": 10174.05427614334,
+        "tweedie_deviance": 6.7054776085493675,
+        "top_decile_amount_capture": 0.035344109121117004
+      },
+      "expected_events": 111.57397190333675,
+      "observed_events": 45,
+      "predicted_amount_per_expected_event": 170390.44260053418,
+      "observed_amount_per_event": 89161.71355555556
+    },
+    "challenger": {
+      "probability": {
+        "n": 8632,
+        "events": 45,
+        "observed_rate": 0.005213160333642261,
+        "predicted_rate": 0.0040421526772497435,
+        "brier": 0.005198212764030955,
+        "log_loss": 0.033527605392516445,
+        "roc_auc": 0.6529586066793474,
+        "pr_auc": 0.008572385955349069,
+        "ks": 0.28576789203317676,
+        "top_decile_lift": 1.5541152263374485,
+        "calibration_intercept": -2.9904319290522094,
+        "calibration_slope": 0.37449763542211784
+      },
+      "amount": {
+        "n": 8632,
+        "actual_total": 4012277.1100000003,
+        "predicted_total": 4601518.327206155,
+        "predicted_actual_ratio": 1.1468595515842013,
+        "actual_mean": 464.8143083873958,
+        "predicted_mean": 533.0767292870894,
+        "mae_dollars": 991.5664898708736,
+        "rmse_dollars": 9927.951897816378,
+        "tweedie_deviance": 5.2389789246704215,
+        "top_decile_amount_capture": 0.2738687881904548
+      },
+      "expected_events": 34.891861910019784,
+      "observed_events": 45,
+      "predicted_amount_per_expected_event": 131879.41472062148,
+      "observed_amount_per_event": 89161.71355555556
+    },
+    "uncertainty": {
+      "replicates": 500,
+      "unit": "borrower cluster",
+      "conditional_on_fitted_model": true,
+      "deviance_improvement_95_ci": [
+        0.09039857562733078,
+        0.35449994620464187
+      ],
+      "amount_ratio_95_ci": [
+        0.7497716101974171,
+        2.098942025708044
+      ],
+      "brier_improvement_95_ci": [
+        1.342442061472301e-05,
+        0.0001135139149624642
+      ]
+    },
+    "research_gates": {
+      "amount_within_25_percent": true,
+      "probability_within_25_percent": true,
+      "auc_at_least_baseline": false,
+      "paired_deviance_improvement_95_ci_positive": true
+    },
+    "all_research_gates_pass": false,
+    "calibration_deciles": [
+      {
+        "loans": 864,
+        "events": 0,
+        "predicted": 0.00013646512052565326,
+        "observed": 0.0
+      },
+      {
+        "loans": 864,
+        "events": 0,
+        "predicted": 0.00023620416769752866,
+        "observed": 0.0
+      },
+      {
+        "loans": 863,
+        "events": 2,
+        "predicted": 0.00044890504439127363,
+        "observed": 0.002317497103128621
+      },
+      {
+        "loans": 863,
+        "events": 4,
+        "predicted": 0.0007590537386145561,
+        "observed": 0.004634994206257242
+      },
+      {
+        "loans": 863,
+        "events": 9,
+        "predicted": 0.0012482335047940818,
+        "observed": 0.010428736964078795
+      },
+      {
+        "loans": 863,
+        "events": 5,
+        "predicted": 0.002360238508307834,
+        "observed": 0.005793742757821553
+      },
+      {
+        "loans": 863,
+        "events": 3,
+        "predicted": 0.004067009562405772,
+        "observed": 0.0034762456546929316
+      },
+      {
+        "loans": 863,
+        "events": 5,
+        "predicted": 0.005999394157344289,
+        "observed": 0.005793742757821553
+      },
+      {
+        "loans": 863,
+        "events": 10,
+        "predicted": 0.00879482394593984,
+        "observed": 0.011587485515643106
+      },
+      {
+        "loans": 863,
+        "events": 7,
+        "predicted": 0.016380134869598596,
+        "observed": 0.008111239860950173
+      }
+    ],
+    "segments": [
+      {
+        "dimension": "industry",
+        "value": "Accommodation and food",
+        "loans": 1130,
+        "events": 3,
+        "actual": 57576.229999999996,
+        "baseline": 2984074.903940729,
+        "challenger": 384779.2044870425,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Administrative services",
+        "loans": 485,
+        "events": 4,
+        "actual": 335654.75,
+        "baseline": 1032212.4179519431,
+        "challenger": 254355.9295098171,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Arts and recreation",
+        "loans": 324,
+        "events": 3,
+        "actual": 111329.37000000001,
+        "baseline": 776577.0081842758,
+        "challenger": 98067.4485410612,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Construction",
+        "loans": 969,
+        "events": 7,
+        "actual": 823094.5399999999,
+        "baseline": 2316853.1231694766,
+        "challenger": 793790.1160333909,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Education",
+        "loans": 137,
+        "events": 0,
+        "actual": 0.0,
+        "baseline": 261541.32632922815,
+        "challenger": 65532.406064193296,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Finance",
+        "loans": 170,
+        "events": 0,
+        "actual": 0.0,
+        "baseline": 296979.54740761034,
+        "challenger": 75031.65674549295,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Health care",
+        "loans": 949,
+        "events": 3,
+        "actual": 281326.77999999997,
+        "baseline": 1518483.1018945484,
+        "challenger": 345552.6344256383,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Manufacturing",
+        "loans": 468,
+        "events": 1,
+        "actual": 4924.52,
+        "baseline": 1123043.3073905562,
+        "challenger": 238123.86065435695,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Other services",
+        "loans": 885,
+        "events": 3,
+        "actual": 159219.7,
+        "baseline": 1683565.1980427986,
+        "challenger": 539752.7081230256,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Professional services",
+        "loans": 972,
+        "events": 6,
+        "actual": 540265.33,
+        "baseline": 1908356.6844058004,
+        "challenger": 526596.7127564617,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Real estate",
+        "loans": 148,
+        "events": 3,
+        "actual": 210663.86,
+        "baseline": 275857.4629287993,
+        "challenger": 69618.8852646406,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Retail",
+        "loans": 1032,
+        "events": 3,
+        "actual": 216713.75,
+        "baseline": 2480800.543411418,
+        "challenger": 556438.0376908614,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Transport",
+        "loans": 419,
+        "events": 6,
+        "actual": 969526.13,
+        "baseline": 902765.8740530259,
+        "challenger": 249271.27016654247,
+        "low_event_count": true
+      },
+      {
+        "dimension": "industry",
+        "value": "Wholesale",
+        "loans": 353,
+        "events": 2,
+        "actual": 194491.31999999998,
+        "baseline": 1099082.935337856,
+        "challenger": 319432.7273671923,
+        "low_event_count": true
+      },
+      {
+        "dimension": "business_age",
+        "value": "Existing",
+        "loans": 5127,
+        "events": 29,
+        "actual": 2592247.42,
+        "baseline": 10231388.430684393,
+        "challenger": 3406862.5751131857,
+        "low_event_count": true
+      },
+      {
+        "dimension": "business_age",
+        "value": "New",
+        "loans": 2520,
+        "events": 16,
+        "actual": 1420029.69,
+        "baseline": 5897465.082567268,
+        "challenger": 983229.5909183912,
+        "low_event_count": true
+      },
+      {
+        "dimension": "business_age",
+        "value": "Unknown",
+        "loans": 985,
+        "events": 0,
+        "actual": 0.0,
+        "baseline": 2882284.942057453,
+        "challenger": 211426.16117457885,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "AZ",
+        "loans": 198,
+        "events": 3,
+        "actual": 208008.19,
+        "baseline": 424695.04301159736,
+        "challenger": 96457.15846535098,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "CA",
+        "loans": 1252,
+        "events": 9,
+        "actual": 1156684.15,
+        "baseline": 3004487.911590109,
+        "challenger": 1055684.8565042124,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "CO",
+        "loans": 278,
+        "events": 1,
+        "actual": 43945.62,
+        "baseline": 637401.0127162135,
+        "challenger": 161494.8759512929,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "FL",
+        "loans": 778,
+        "events": 3,
+        "actual": 216353.87,
+        "baseline": 2157823.6737657767,
+        "challenger": 628140.3952102903,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "GA",
+        "loans": 306,
+        "events": 1,
+        "actual": 140999.71,
+        "baseline": 732948.8308778857,
+        "challenger": 144750.98695963097,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "IL",
+        "loans": 317,
+        "events": 0,
+        "actual": 0.0,
+        "baseline": 828131.992668017,
+        "challenger": 199711.23144535295,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "IN",
+        "loans": 155,
+        "events": 0,
+        "actual": 0.0,
+        "baseline": 291815.0060265771,
+        "challenger": 43512.876657706816,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "MA",
+        "loans": 198,
+        "events": 3,
+        "actual": 117171.41,
+        "baseline": 263598.8859770931,
+        "challenger": 61339.445632469186,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "MD",
+        "loans": 122,
+        "events": 4,
+        "actual": 177446.55,
+        "baseline": 274367.65341835225,
+        "challenger": 36390.20114942451,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "MI",
+        "loans": 226,
+        "events": 1,
+        "actual": 121618.61,
+        "baseline": 386610.39221717196,
+        "challenger": 61704.09409175635,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "MN",
+        "loans": 188,
+        "events": 1,
+        "actual": 49338.56,
+        "baseline": 320626.602702199,
+        "challenger": 39386.512216888565,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "MO",
+        "loans": 137,
+        "events": 0,
+        "actual": 0.0,
+        "baseline": 270117.79277022614,
+        "challenger": 52851.946325671015,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "NC",
+        "loans": 242,
+        "events": 1,
+        "actual": 150000.0,
+        "baseline": 592728.0392099309,
+        "challenger": 96554.3748287479,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "NJ",
+        "loans": 245,
+        "events": 3,
+        "actual": 109192.93,
+        "baseline": 560314.5938232484,
+        "challenger": 125301.75034583278,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "NV",
+        "loans": 110,
+        "events": 1,
+        "actual": 22403.26,
+        "baseline": 257370.39979533906,
+        "challenger": 53177.80754766721,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "NY",
+        "loans": 479,
+        "events": 0,
+        "actual": 0.0,
+        "baseline": 938695.1291387125,
+        "challenger": 318926.1417461754,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "OH",
+        "loans": 288,
+        "events": 1,
+        "actual": 147010.78,
+        "baseline": 440987.065134453,
+        "challenger": 99081.77970760809,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "OR",
+        "loans": 111,
+        "events": 0,
+        "actual": 0.0,
+        "baseline": 194580.75951562246,
+        "challenger": 46461.74893928092,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "PA",
+        "loans": 252,
+        "events": 1,
+        "actual": 209408.43,
+        "baseline": 407252.56166771415,
+        "challenger": 92685.6047946272,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "TN",
+        "loans": 124,
+        "events": 0,
+        "actual": 0.0,
+        "baseline": 286610.12641263107,
+        "challenger": 52777.48860319079,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "TX",
+        "loans": 793,
+        "events": 4,
+        "actual": 594049.37,
+        "baseline": 2238527.664136335,
+        "challenger": 490656.10671120434,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "UT",
+        "loans": 145,
+        "events": 0,
+        "actual": 0.0,
+        "baseline": 248062.0492086327,
+        "challenger": 55065.728930446094,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "VA",
+        "loans": 149,
+        "events": 0,
+        "actual": 0.0,
+        "baseline": 389039.00160086853,
+        "challenger": 83150.6204455506,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "WA",
+        "loans": 195,
+        "events": 0,
+        "actual": 0.0,
+        "baseline": 384872.2914503957,
+        "challenger": 69659.8777809965,
+        "low_event_count": true
+      },
+      {
+        "dimension": "state",
+        "value": "WI",
+        "loans": 146,
+        "events": 1,
+        "actual": 8281.71,
+        "baseline": 233307.22551557445,
+        "challenger": 30477.616373689467,
+        "low_event_count": true
+      }
+    ]
+  },
+  "approved_for_lending": false,
+  "retrospective": true,
+  "elapsed_seconds": 22.950788021087646
+}
