@@ -33,9 +33,11 @@ Python 3.12, from this repository's root:
 python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.lock.txt
-OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 python -m pytest -q
+OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 python -m pytest -q tests
 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 uvicorn cedar.api:app --host 127.0.0.1 --port 8010
 ```
+
+The test command above runs only the UCI/API suite in `tests/`. Run the [SBA package tests](sba/README.md#run-the-published-model) in their separate environment; the two model artifacts use different scikit-learn versions.
 
 Open `http://127.0.0.1:8010/docs`, or:
 

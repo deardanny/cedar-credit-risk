@@ -85,8 +85,10 @@ CEDAR_ARTIFACT_DIR=runs/reproduction/artifacts uvicorn cedar.api:app --host 127.
 ## 테스트
 
 ```bash
-OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 python -m pytest -q
+OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 python -m pytest -q tests
 ```
+
+이 명령은 `tests/`의 UCI/API 테스트만 실행한다. [SBA 패키지 테스트](sba/README.md#run-the-published-model)는 별도 환경에서 실행한다. 두 모델 산출물의 scikit-learn 버전이 다르므로 한 환경에서 함께 실행하지 않는다.
 
 저장 모델과 API 예측 일치, 잘못된 입력, 누락 필드, 손상된 모델, 그룹 분리 및 모델 선택 규칙을 검증한다.
 
